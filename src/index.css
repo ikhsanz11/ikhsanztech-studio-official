@@ -1,0 +1,374 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #09090b;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* Glass Card Styles */
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated Gradient Border */
+.glass-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: 24px;
+  background: linear-gradient(90deg,
+      rgba(147, 51, 234, 0.5),
+      rgba(168, 85, 247, 0.3),
+      rgba(147, 51, 234, 0.5),
+      rgba(168, 85, 247, 0.3));
+  background-size: 200% 100%;
+  animation: gradientBorder 4s linear infinite;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+@keyframes gradientBorder {
+  0% {
+    background-position: 0% 0%;
+  }
+
+  100% {
+    background-position: 200% 0%;
+  }
+}
+
+/* Ambient Gradient Background - Ternakklip Style */
+.ambient-gradient {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.ambient-gradient::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120%;
+  height: 70%;
+  background: radial-gradient(ellipse 80% 50% at 50% 0%,
+      rgba(147, 51, 234, 0.4) 0%,
+      rgba(126, 34, 206, 0.2) 30%,
+      rgba(88, 28, 135, 0.1) 50%,
+      transparent 70%);
+  animation: meshPulse 18s ease-in-out infinite;
+}
+
+.ambient-gradient::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 50%;
+  background: radial-gradient(ellipse 60% 40% at 50% 0%,
+      rgba(168, 85, 247, 0.3) 0%,
+      rgba(147, 51, 234, 0.15) 40%,
+      transparent 70%);
+  filter: blur(40px);
+  animation: meshPulse 18s ease-in-out infinite reverse;
+}
+
+/* Mesh Gradient Animation */
+@keyframes meshPulse {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+
+  25% {
+    opacity: 0.7;
+    transform: translateX(-48%) scale(1.05);
+  }
+
+  50% {
+    opacity: 0.85;
+    transform: translateX(-52%) scale(1.02);
+  }
+
+  75% {
+    opacity: 0.75;
+    transform: translateX(-50%) scale(1.08);
+  }
+}
+
+/* Hero Mesh Gradient - Smooth Breathing Effect */
+.hero-mesh-gradient {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero-mesh-gradient::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  left: -20%;
+  width: 140%;
+  height: 140%;
+  background:
+    radial-gradient(ellipse 50% 50% at 20% 30%, rgba(45, 27, 78, 0.6) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 50% at 80% 20%, rgba(26, 26, 46, 0.5) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 60% at 50% 50%, rgba(88, 28, 135, 0.3) 0%, transparent 60%);
+  filter: blur(60px);
+  animation: heroMeshMove 18s ease-in-out infinite;
+}
+
+.hero-mesh-gradient::after {
+  content: '';
+  position: absolute;
+  top: -10%;
+  right: -10%;
+  width: 120%;
+  height: 120%;
+  background:
+    radial-gradient(ellipse 40% 40% at 70% 60%, rgba(45, 27, 78, 0.4) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 50% at 30% 70%, rgba(26, 26, 46, 0.3) 0%, transparent 50%);
+  filter: blur(80px);
+  animation: heroMeshMove 18s ease-in-out infinite reverse;
+}
+
+@keyframes heroMeshMove {
+
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  25% {
+    transform: translate(2%, 3%) rotate(1deg);
+  }
+
+  50% {
+    transform: translate(-1%, 2%) rotate(-1deg);
+  }
+
+  75% {
+    transform: translate(1%, -2%) rotate(0.5deg);
+  }
+}
+
+/* Glowing Blob Animations - Smooth Floating Effect */
+.animate-blob-1 {
+  animation: blob1Float 25s ease-in-out infinite;
+}
+
+.animate-blob-2 {
+  animation: blob2Float 28s ease-in-out infinite;
+}
+
+.animate-blob-3 {
+  animation: blob3Float 22s ease-in-out infinite;
+}
+
+@keyframes blob1Float {
+
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+
+  25% {
+    transform: translate(5%, 10%) rotate(3deg) scale(1.05);
+  }
+
+  50% {
+    transform: translate(10%, 5%) rotate(-2deg) scale(0.95);
+  }
+
+  75% {
+    transform: translate(3%, 8%) rotate(1deg) scale(1.02);
+  }
+}
+
+@keyframes blob2Float {
+
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+
+  25% {
+    transform: translate(-8%, -5%) rotate(-2deg) scale(1.03);
+  }
+
+  50% {
+    transform: translate(-5%, -10%) rotate(3deg) scale(0.97);
+  }
+
+  75% {
+    transform: translate(-10%, -3%) rotate(-1deg) scale(1.05);
+  }
+}
+
+@keyframes blob3Float {
+
+  0%,
+  100% {
+    transform: translate(-50%, -50%) rotate(0deg) scale(1);
+  }
+
+  33% {
+    transform: translate(-45%, -55%) rotate(2deg) scale(1.08);
+  }
+
+  66% {
+    transform: translate(-55%, -45%) rotate(-2deg) scale(0.92);
+  }
+}
+
+
+/* CTA Button - White with Black Text like Ternakklip */
+.btn-glow {
+  background: #ffffff;
+  border: none;
+  border-radius: 999px;
+  padding: 16px 40px;
+  color: #000000;
+  font-weight: 600;
+  font-family: 'Sora', sans-serif;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-glow:hover {
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.4);
+  transform: scale(1.03) translateY(-2px);
+}
+
+/* Soft Glassmorphism Card */
+.soft-glass {
+  background: rgba(24, 24, 27, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+}
+
+/* Global Transitions */
+.transition-smooth {
+  transition: all 0.5s ease;
+}
+
+/* Outline Button Style */
+.btn-outline {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 999px;
+  padding: 16px 40px;
+  color: #ffffff;
+  font-weight: 500;
+  font-family: 'Sora', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Marquee animation for testimonials */
+.marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee-content {
+  display: inline-flex;
+  animation: marquee 30s linear infinite;
+}
+
+.marquee-content:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(147, 51, 234, 0.5);
+  border-radius: 4px;
+}
+
+/* Service carousel */
+.service-carousel {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 20px 0;
+}
+
+.service-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+/* Video showreel container */
+.showreel-container {
+  border-radius: 32px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
