@@ -84,7 +84,7 @@ export function Header() {
             className="fixed inset-0 z-[100] md:hidden"
           >
             {/* Glassmorphism Background */}
-            <div className="absolute inset-0 bg-black/50 backdrop-blur-xl" />
+            <div className="absolute inset-0 bg-black/45 backdrop-blur-lg border-t border-white/10" />
 
             {/* Menu Content */}
             <motion.div
