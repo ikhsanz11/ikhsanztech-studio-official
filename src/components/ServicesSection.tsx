@@ -106,7 +106,7 @@ export function ServicesSection() {
   };
 
   return (
-    <section id="jasa-kami" ref={sectionRef} className="relative py-20 overflow-hidden">
+    <section id="jasa-kami" ref={sectionRef} className="section-fade-bottom relative py-20 overflow-hidden">
       {/* Background gradient matching site theme */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-gradient-to-t from-purple-900/20 to-transparent rounded-full blur-3xl pointer-events-none" />
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
