@@ -34,9 +34,9 @@ const footerLinks = {
 
 export function Footer() {
   return (
-    <footer id="contact" className="relative pt-20 pb-8 overflow-hidden">
+    <footer id="contact" className="section-fade-top relative pt-20 pb-8 overflow-hidden">
       {/* Glassmorphism Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-zinc-900/60 to-zinc-900/40 backdrop-blur-xl border-t border-white/10" />
+      <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-zinc-900/60 to-zinc-900/40 backdrop-blur-xl" />
 
       {/* Gradient divider */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-500/30 to-transparent" />

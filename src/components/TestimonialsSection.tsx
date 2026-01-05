@@ -66,7 +66,7 @@ export function TestimonialsSection() {
   const duplicatedTestimonials = [...testimonials, ...testimonials];
 
   return (
-    <section className="relative py-20 overflow-hidden">
+    <section className="section-fade-bottom relative pt-20 pb-32 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
