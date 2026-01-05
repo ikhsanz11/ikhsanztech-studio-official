@@ -2,9 +2,9 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const navItems = [
-  { name: 'Jasa Kami', href: '/#services' },
-  { name: 'Produk Digital', href: '/#products' },
-  { name: 'Portofolio', href: '/#showreel' },
+  { name: 'Jasa Kami', href: '/#jasa-kami' },
+  { name: 'Produk Digital', href: '/#produk-digital' },
+  { name: 'Portofolio', href: '/#portofolio' },
 ];
 
 export function Header() {
