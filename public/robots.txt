@@ -1,0 +1,11 @@
+# Robots.txt for ikhsanztech.com
+# https://ikhsanztech.com
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+Disallow: /private/
+
+# Sitemap location
+Sitemap: https://ikhsanztech.com/sitemap.xml
