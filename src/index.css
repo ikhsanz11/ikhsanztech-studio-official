@@ -431,3 +431,26 @@ body {
     transition-duration: 0.15s !important;
   }
 }
+
+/* Scrollbar Hide Utility */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Portfolio Categories - Mobile Horizontal Scroll */
+@media (max-width: 768px) {
+  .portfolio-categories {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    will-change: scroll-position;
+  }
+
+  .portfolio-categories a {
+    transition-duration: 0.2s !important;
+  }
+}

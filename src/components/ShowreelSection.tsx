@@ -58,13 +58,13 @@ export function ShowreelSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-10 flex flex-wrap items-center justify-center gap-4"
+          className="mt-10 flex flex-nowrap md:flex-wrap items-center justify-start md:justify-center gap-3 md:gap-4 overflow-x-auto md:overflow-visible scrollbar-hide pb-2 -mx-4 px-4 md:mx-0 md:px-0 portfolio-categories"
         >
           {categories.map((category, index) => (
             <Link
               key={index}
               to={category.href}
-              className="font-bold text-lg text-white bg-zinc-900/40 backdrop-blur-md border border-white/10 rounded-full px-6 py-3 hover:bg-zinc-800/60 hover:border-white/30 hover:scale-105 hover:shadow-[0_0_20px_rgba(139,92,246,0.3)] transition-all duration-300"
+              className="font-bold text-sm md:text-lg text-white bg-zinc-900/40 backdrop-blur-md border border-white/10 rounded-full px-4 py-2 md:px-6 md:py-3 hover:bg-zinc-800/60 hover:border-white/30 hover:scale-105 hover:shadow-[0_0_20px_rgba(139,92,246,0.3)] transition-all duration-300 whitespace-nowrap flex-shrink-0"
             >
               {category.label}
             </Link>
