@@ -34,19 +34,39 @@ import { CreditCardPage } from "./pages/CreditCardPage";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
-// Component to handle hash scrolling
-function ScrollToHash() {
+// Section paths mapping
+const sectionPaths: Record<string, string> = {
+  '/jasa-kami': 'jasa-kami',
+  '/produk-digital': 'produk-digital',
+  '/portofolio': 'portofolio',
+};
+
+// Component to handle path-based section scrolling
+function ScrollToSection() {
   const location = useLocation();
 
   useEffect(() => {
-    if (location.hash) {
+    // Check if current path is a section path
+    const sectionId = sectionPaths[location.pathname];
+
+    if (sectionId) {
+      // Wait for page to render, then scroll to section
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    } else if (location.hash) {
+      // Handle hash-based navigation as fallback
       const element = document.querySelector(location.hash);
       if (element) {
         setTimeout(() => {
           element.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }, 100);
       }
-    } else {
+    } else if (location.pathname === '/') {
+      // Scroll to top for home page
       window.scrollTo(0, 0);
     }
   }, [location]);
@@ -79,9 +99,14 @@ function App() {
     <>
       <SpeedInsights />
       <Router>
-        <ScrollToHash />
+        <ScrollToSection />
         <Routes>
           <Route path="/" element={<HomePage />} />
+          {/* Section routes - render HomePage and scroll to section */}
+          <Route path="/jasa-kami" element={<HomePage />} />
+          <Route path="/produk-digital" element={<HomePage />} />
+          <Route path="/portofolio" element={<HomePage />} />
+          {/* Product pages */}
           <Route path="/produk/flow-ai" element={<FlowAiPage />} />
           <Route path="/produk/higgsfield-ai" element={<HiggsfieldAiPage />} />
           <Route path="/produk/video-gen" element={<VideoGenPage />} />
