@@ -5,21 +5,33 @@ import { ArrowLeft, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 
-// 12 videos: 4 vertical (9:16), 8 horizontal (16:9)
+// Video data with external links
 const videos = [
-    { id: 1, type: 'vertical', src: '/ai-v1.mp4' },
-    { id: 2, type: 'vertical', src: '/ai-v2.mp4' },
-    { id: 3, type: 'vertical', src: '/ai-v3.mp4' },
-    { id: 4, type: 'vertical', src: '/ai-v4.mp4' },
-    { id: 5, type: 'horizontal', src: '/ai-h1.mp4' },
-    { id: 6, type: 'horizontal', src: '/ai-h2.mp4' },
-    { id: 7, type: 'horizontal', src: '/ai-h3.mp4' },
-    { id: 8, type: 'horizontal', src: '/ai-h4.mp4' },
-    { id: 9, type: 'horizontal', src: '/ai-h5.mp4' },
-    { id: 10, type: 'horizontal', src: '/ai-h6.mp4' },
-    { id: 11, type: 'horizontal', src: '/ai-h7.mp4' },
-    { id: 12, type: 'horizontal', src: '/ai-h8.mp4' },
+    { id: 1, type: 'vertical', platform: 'youtube-shorts', videoId: 'U4Hje_B3-wQ' },
+    { id: 2, type: 'vertical', platform: 'youtube-shorts', videoId: 'camkOxnfMGc' },
+    { id: 3, type: 'vertical', platform: 'youtube-shorts', videoId: '8eGLeTICmSs' },
+    { id: 4, type: 'vertical', platform: 'youtube-shorts', videoId: 'qtqhnDxx6vM' },
+    { id: 5, type: 'horizontal', platform: 'gdrive', fileId: '1jE3UA1O_erJucXQkTm-26o9DqkbZGZG_' },
+    { id: 6, type: 'horizontal', platform: 'gdrive', fileId: '1ku97eFVFA5KEMbd6mgoXcXDlN7qlubT7' },
+    { id: 7, type: 'horizontal', platform: 'gdrive', fileId: '1fbvFBMGePp9S78R2OAQ3mVpMIx2oZCL4' },
+    { id: 8, type: 'horizontal', platform: 'gdrive', fileId: '1Xc3AzhLRTpg6mAcUug8VXlzjnDQMxlzh' },
+    { id: 9, type: 'horizontal', platform: 'gdrive', fileId: '1wtPahj1CwBz3TBNiBe4jswpROw6AJd5S' },
+    { id: 10, type: 'horizontal', platform: 'youtube', videoId: 'JllmpLtJolY' },
+    { id: 11, type: 'horizontal', platform: 'youtube', videoId: 'BKB9eVLBMlI' },
+    { id: 12, type: 'horizontal', platform: 'youtube', videoId: 'Fl7YGECSH8c' },
 ];
+
+function getEmbedUrl(video: typeof videos[0]) {
+    switch (video.platform) {
+        case 'youtube-shorts':
+        case 'youtube':
+            return `https://www.youtube.com/embed/${video.videoId}?autoplay=0&rel=0`;
+        case 'gdrive':
+            return `https://drive.google.com/file/d/${video.fileId}/preview`;
+        default:
+            return '';
+    }
+}
 
 export function AiContentPage() {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -82,46 +94,45 @@ export function AiContentPage() {
                                 <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                             </button>
 
-                            {/* Video Display - Adaptive sizing based on video type */}
+                            {/* Video Display - Responsive and aspect ratio aware */}
                             <motion.div
                                 key={currentIndex}
                                 initial={{ opacity: 0, scale: 0.95 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ duration: 0.3 }}
-                                className={isVertical ? 'w-full max-w-[200px] sm:max-w-xs' : 'w-full'}
+                                className={`relative overflow-hidden rounded-2xl shadow-2xl ${isVertical
+                                        ? 'w-[280px] sm:w-[320px] md:w-[360px] aspect-[9/16]'
+                                        : 'w-full max-w-3xl aspect-video'
+                                    }`}
                             >
-                                <div
-                                    className={`relative overflow-hidden rounded-xl sm:rounded-2xl bg-white/5 border border-white/10 shadow-[0_0_30px_rgba(139,92,246,0.2)] sm:shadow-[0_0_60px_rgba(139,92,246,0.3)] ${isVertical ? 'aspect-[9/16]' : 'aspect-video'
-                                        }`}
-                                >
-                                    {/* Video Element */}
-                                    <video
-                                        src={currentVideo.src}
-                                        controls
-                                        className="absolute inset-0 w-full h-full object-cover"
-                                    />
-                                </div>
+                                <iframe
+                                    src={getEmbedUrl(currentVideo)}
+                                    className="absolute inset-0 w-full h-full"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                    title={`AI Content Video ${currentVideo.id}`}
+                                />
                             </motion.div>
                         </div>
 
-                        {/* Page Indicators */}
-                        <div className="flex justify-center gap-2 mt-6 sm:mt-8">
+                        {/* Video Indicators */}
+                        <div className="flex justify-center gap-2 mt-6 sm:mt-8 flex-wrap max-w-md mx-auto">
                             {videos.map((_, index) => (
                                 <button
                                     key={index}
                                     onClick={() => setCurrentIndex(index)}
-                                    className={`h-2 sm:h-2.5 rounded-full transition-all duration-300 ${index === currentIndex
-                                            ? 'bg-white w-6 sm:w-8'
-                                            : 'bg-white/30 hover:bg-white/50 w-2 sm:w-2.5'
+                                    className={`w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full transition-all ${index === currentIndex
+                                            ? 'bg-purple-500 scale-125'
+                                            : 'bg-white/30 hover:bg-white/50'
                                         }`}
                                 />
                             ))}
                         </div>
 
                         {/* Counter */}
-                        <div className="text-center mt-3 sm:mt-4 text-white/40 text-xs sm:text-sm">
+                        <p className="text-center text-white/40 mt-4 text-sm">
                             {currentIndex + 1} / {videos.length}
-                        </div>
+                        </p>
                     </div>
                 </section>
 

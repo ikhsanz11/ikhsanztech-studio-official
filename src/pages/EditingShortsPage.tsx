@@ -5,13 +5,17 @@ import { ArrowLeft, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 
-// 4 vertical videos (9:16) for Reels/TikTok
+// 4 vertical videos (9:16) for Reels/TikTok - Google Drive
 const videos = [
-    { id: 1, src: '/sh-v1.mp4' },
-    { id: 2, src: '/sh-v2.mp4' },
-    { id: 3, src: '/sh-v3.mp4' },
-    { id: 4, src: '/sh-v4.mp4' },
+    { id: 1, platform: 'gdrive', fileId: '1VUTWbBXMXnuN8yRMrkpW41V5PGz0vHts' },
+    { id: 2, platform: 'gdrive', fileId: '14mWiPCHKSIXluJtPjOrak_MkadLGuexn' },
+    { id: 3, platform: 'gdrive', fileId: '1PK6iNU-1tSWEHXVbEeZOy99y6o2WZwe2' },
+    { id: 4, platform: 'gdrive', fileId: '1fM7VJjK4DLmLCyygZrX7JQ79P22OR3vc' },
 ];
+
+function getEmbedUrl(video: typeof videos[0]) {
+    return `https://drive.google.com/file/d/${video.fileId}/preview`;
+}
 
 export function EditingShortsPage() {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -72,43 +76,42 @@ export function EditingShortsPage() {
                                 <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                             </button>
 
-                            {/* Video Display - Responsive width */}
+                            {/* Video Display - Vertical 9:16 for Shorts/Reels */}
                             <motion.div
                                 key={currentIndex}
                                 initial={{ opacity: 0, scale: 0.95 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ duration: 0.3 }}
-                                className="w-full max-w-[200px] sm:max-w-xs"
+                                className="relative w-[280px] sm:w-[320px] md:w-[360px] aspect-[9/16] overflow-hidden rounded-2xl shadow-2xl"
                             >
-                                <div className="relative aspect-[9/16] overflow-hidden rounded-xl sm:rounded-2xl bg-white/5 border border-white/10 shadow-[0_0_30px_rgba(139,92,246,0.2)] sm:shadow-[0_0_40px_rgba(139,92,246,0.2)]">
-                                    {/* Video Element */}
-                                    <video
-                                        src={videos[currentIndex].src}
-                                        controls
-                                        className="absolute inset-0 w-full h-full object-cover"
-                                    />
-                                </div>
+                                <iframe
+                                    src={getEmbedUrl(videos[currentIndex])}
+                                    className="absolute inset-0 w-full h-full"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                    title={`Editing Shorts Video ${videos[currentIndex].id}`}
+                                />
                             </motion.div>
                         </div>
 
-                        {/* Page Indicators */}
-                        <div className="flex justify-center gap-2 mt-6 sm:mt-8">
+                        {/* Video Indicators */}
+                        <div className="flex justify-center gap-3 mt-6 sm:mt-8">
                             {videos.map((_, index) => (
                                 <button
                                     key={index}
                                     onClick={() => setCurrentIndex(index)}
-                                    className={`h-2 sm:h-2.5 rounded-full transition-all duration-300 ${index === currentIndex
-                                        ? 'bg-white w-6 sm:w-8'
-                                        : 'bg-white/30 hover:bg-white/50 w-2 sm:w-2.5'
+                                    className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-all ${index === currentIndex
+                                            ? 'bg-purple-500 scale-125'
+                                            : 'bg-white/30 hover:bg-white/50'
                                         }`}
                                 />
                             ))}
                         </div>
 
                         {/* Counter */}
-                        <div className="text-center mt-3 sm:mt-4 text-white/40 text-xs sm:text-sm">
+                        <p className="text-center text-white/40 mt-4 text-sm">
                             {currentIndex + 1} / {videos.length}
-                        </div>
+                        </p>
                     </div>
                 </section>
 
