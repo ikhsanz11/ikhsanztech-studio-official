@@ -138,8 +138,8 @@ export function ServicesSection() {
                   onClick={() => setCurrentIndex(index)}
                   whileTap={{ scale: 0.95 }}
                   className={`relative flex flex-col items-center justify-center p-3 rounded-xl transition-all duration-300 ${isActive
-                      ? 'bg-purple-600/30 border-2 border-purple-500 shadow-[0_0_20px_rgba(139,92,246,0.4)]'
-                      : 'bg-zinc-900/40 border border-white/10 hover:border-white/30'
+                    ? 'bg-purple-600/30 border-2 border-purple-500 shadow-[0_0_20px_rgba(139,92,246,0.4)]'
+                    : 'bg-zinc-900/40 border border-white/10 hover:border-white/30'
                     }`}
                 >
                   <Icon className={`w-6 h-6 mb-1 ${isActive ? 'text-purple-400' : 'text-white/70'}`} />
@@ -203,11 +203,6 @@ export function ServicesSection() {
               </Link>
             </motion.div>
           </AnimatePresence>
-
-          {/* Mobile Slide Counter */}
-          <div className="text-center mt-4 text-white/40 text-xs">
-            {currentIndex + 1} / {services.length}
-          </div>
         </div>
 
         {/* ============================================
