@@ -22,14 +22,81 @@ body {
   overflow-x: hidden;
 }
 
-/* Glass Card Styles */
+/* ============================================
+   GLOBAL GLASSMORPHISM STYLES
+   ============================================ */
+
+/* Primary Glass Card - Light on dark */
 .glass-card {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 24px;
   position: relative;
   overflow: hidden;
+}
+
+/* Dark Glass - For overlays and menus */
+.glass-dark {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Light Glass - For cards and containers */
+.glass-light {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Glass Navbar */
+.glass-nav {
+  background: linear-gradient(to bottom right,
+      rgba(255, 255, 255, 0.1),
+      rgba(24, 24, 27, 0.5),
+      rgba(0, 0, 0, 0.4));
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* Glass Button */
+.glass-button {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.3s ease;
+}
+
+.glass-button:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* Glass Grid Item - For service/product grids */
+.glass-grid-item {
+  background: rgba(24, 24, 27, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.glass-grid-item:hover {
+  background: rgba(24, 24, 27, 0.6);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.glass-grid-item.active {
+  background: rgba(139, 92, 246, 0.2);
+  border-color: rgba(139, 92, 246, 0.5);
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
 }
 
 /* Animated Gradient Border */
