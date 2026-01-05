@@ -44,7 +44,7 @@ export function Header() {
                 href="https://wa.me/message/3VBAYSQKPXSYB1"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden md:block bg-black text-white font-bold text-sm px-6 py-2.5 rounded-full border border-white/10 hover:bg-zinc-900 transition-all"
+                className="hidden md:block bg-white/10 backdrop-blur-md text-white font-bold text-sm px-6 py-2.5 rounded-full border border-white/20 hover:bg-white/20 hover:border-white/30 transition-all"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >Hubungi Kami</motion.a>
