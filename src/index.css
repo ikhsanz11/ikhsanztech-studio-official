@@ -521,3 +521,48 @@ body {
     transition-duration: 0.2s !important;
   }
 }
+
+/* ============================================
+   SECTION FADE - Seamless Transitions
+   ============================================ */
+
+/* Bottom fade overlay for seamless section blending */
+.section-fade-bottom {
+  position: relative;
+}
+
+.section-fade-bottom::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(to bottom,
+      transparent 0%,
+      rgba(9, 9, 11, 0.3) 30%,
+      rgba(9, 9, 11, 0.7) 60%,
+      #09090b 100%);
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Top fade overlay for incoming sections */
+.section-fade-top {
+  position: relative;
+}
+
+.section-fade-top::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(to top,
+      transparent 0%,
+      rgba(9, 9, 11, 0.5) 50%,
+      #09090b 100%);
+  pointer-events: none;
+  z-index: 5;
+}

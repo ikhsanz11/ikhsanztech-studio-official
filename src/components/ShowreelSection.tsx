@@ -9,7 +9,7 @@ const categories = [
 
 export function ShowreelSection() {
   return (
-    <section id="portofolio" className="relative py-20 overflow-hidden">
+    <section id="portofolio" className="section-fade-top relative py-20 overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
