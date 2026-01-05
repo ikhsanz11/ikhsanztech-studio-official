@@ -64,7 +64,7 @@ export function ShowreelSection() {
             <Link
               key={index}
               to={category.href}
-              className="font-semibold text-sm md:text-lg text-white bg-zinc-900/40 backdrop-blur-md border border-white/10 rounded-full px-4 py-2.5 md:px-6 md:py-3 hover:bg-zinc-800/60 hover:border-white/30 hover:scale-105 hover:shadow-[0_0_20px_rgba(139,92,246,0.3)] transition-all duration-300 text-center"
+              className="font-semibold text-xs md:text-lg text-white bg-zinc-900/40 backdrop-blur-md border border-white/10 rounded-full px-3 py-2 md:px-6 md:py-3 hover:bg-zinc-800/60 hover:border-white/30 hover:scale-105 hover:shadow-[0_0_20px_rgba(139,92,246,0.3)] transition-all duration-300 text-center basis-[45%] md:basis-auto"
             >
               {category.label}
             </Link>
