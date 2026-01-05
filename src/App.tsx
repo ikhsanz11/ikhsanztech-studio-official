@@ -31,6 +31,28 @@ import { SpeedrampWorkflowPage } from "./pages/SpeedrampWorkflowPage";
 import { NsfwAiPage } from "./pages/NsfwAiPage";
 import { ChatgptPlusPage } from "./pages/ChatgptPlusPage";
 import { CreditCardPage } from "./pages/CreditCardPage";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+
+// Component to handle hash scrolling
+function ScrollToHash() {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const element = document.querySelector(location.hash);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+      }
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [location]);
+
+  return null;
+}
 
 function HomePage() {
   return (
@@ -57,6 +79,7 @@ function App() {
     <>
       <SpeedInsights />
       <Router>
+        <ScrollToHash />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/produk/flow-ai" element={<FlowAiPage />} />
