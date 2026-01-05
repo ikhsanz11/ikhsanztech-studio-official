@@ -41,7 +41,7 @@ const testimonials = [
 
 function TestimonialCard({ testimonial }: { testimonial: typeof testimonials[0] }) {
   return (
-    <div className="glass-card p-6 min-w-[300px] mx-4 flex flex-col gap-4">
+    <div className="glass-card p-4 min-w-[260px] mx-3 flex flex-col gap-3">
       {/* Quote */}
       <p className="text-white text-sm leading-relaxed italic">
         "{testimonial.content}"
