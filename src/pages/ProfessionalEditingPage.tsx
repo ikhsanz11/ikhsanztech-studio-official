@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import {
     ArrowLeft,
     MessageCircle,
@@ -8,7 +9,11 @@ import {
     Send,
     ClipboardCheck,
     CheckCircle2,
-    Check
+    Check,
+    Play,
+    Film,
+    Megaphone,
+    Building2
 } from 'lucide-react';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
@@ -22,19 +27,48 @@ const workflowSteps = [
     { id: 6, title: 'Selesai (Final Delivery)', icon: CheckCircle2 },
 ];
 
+const services = [
+    {
+        title: 'Editing Video TikTok & Reels',
+        description: 'Optimasi algoritma dengan hook yang kuat dalam 3 detik pertama.',
+        icon: Play
+    },
+    {
+        title: 'Konten YouTube Profesional',
+        description: 'Editing vlog, tutorial, hingga dokumenter dengan color grading cinematic.',
+        icon: Film
+    },
+    {
+        title: 'Video Iklan & Promosi (Ads)',
+        description: 'Didesain khusus untuk meningkatkan penjualan produk UMKM maupun perusahaan besar.',
+        icon: Megaphone
+    },
+    {
+        title: 'Company Profile & Event',
+        description: 'Dokumentasi formal dengan sentuhan kreatif yang elegan.',
+        icon: Building2
+    },
+];
+
 const features = [
-    'Color Grading',
-    'Animation Text',
+    'Color Grading Cinematic',
+    'Animation Text Premium',
     'Sound Design (No Copyright)',
     'Smooth Transition',
     'Motion Graphics',
-    'Full HD Result',
+    'Full HD hingga 4K',
     'Free Revision',
+    'Storytelling Optimization',
 ];
 
 export function ProfessionalEditingPage() {
     return (
         <div className="min-h-screen bg-dark text-white overflow-x-hidden">
+            <Helmet>
+                <title>Jasa Editing Video Profesional – Ubah Konten Jadi Viral | Ikhsanztech</title>
+                <meta name="description" content="Cari jasa editing video di Makassar? Ikhsanztech Studio melayani edit video TikTok, Reels, YouTube, dan Company Profile dengan kualitas cinematic & cepat." />
+                <meta name="keywords" content="Jasa Editing Video, Editing Video Profesional, Edit Video TikTok, Edit Video Reels, Edit Video YouTube, Company Profile, Makassar" />
+            </Helmet>
             <div className="ambient-gradient" />
             <div className="relative z-10">
                 <Header />
@@ -62,7 +96,7 @@ export function ProfessionalEditingPage() {
                                     <div className="rounded-2xl overflow-hidden border border-white/10">
                                         <img
                                             src="https://public.youware.com/image/2a04eada-ee4d-4120-a594-9df842714760/328tkfbx3q.png"
-                                            alt="Jasa Editing Video Profesional"
+                                            alt="Jasa Editing Video Profesional di Makassar"
                                             className="w-full h-auto object-cover"
                                         />
                                     </div>
@@ -70,8 +104,8 @@ export function ProfessionalEditingPage() {
 
                                 {/* Title & Package Info */}
                                 <div className="w-full lg:w-1/2 text-center lg:text-left">
-                                    <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6">
-                                        Jasa Editing Video Profesional
+                                    <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">
+                                        Jasa Editing Video Profesional – Ubah Konten Jadi Viral
                                     </h1>
                                     <div className="bg-zinc-900/50 backdrop-blur-sm border border-white/10 rounded-xl p-6">
                                         <p className="text-white font-bold text-xl sm:text-2xl mb-2">
@@ -85,11 +119,65 @@ export function ProfessionalEditingPage() {
                             </div>
                         </motion.div>
 
-                        {/* Workflow Steps */}
+                        {/* Description Section */}
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.1 }}
+                            className="mb-12 sm:mb-16"
+                        >
+                            <div className="bg-zinc-900/50 backdrop-blur-sm border border-white/10 rounded-2xl p-6 sm:p-8">
+                                <p className="text-white/80 text-base sm:text-lg leading-relaxed mb-6">
+                                    Di era visual 2026, video bukan sekadar gambar bergerak, melainkan <strong className="text-white">identitas bisnis Anda</strong>. Ikhsanztech Studio hadir sebagai solusi jasa editing video yang fokus pada <strong className="text-white">konversi dan estetika</strong>. Kami memahami bahwa setiap platform memiliki bahasa visual yang berbeda.
+                                </p>
+                                <p className="text-white/80 text-base sm:text-lg leading-relaxed">
+                                    Dengan pengalaman lebih dari <strong className="text-white">5 tahun di industri kreatif</strong>, kami tidak hanya mengedit, tapi juga membantu Anda dalam aspek storytelling. Kami menggunakan perangkat software terbaru untuk memastikan render berkualitas tinggi (<strong className="text-white">Full HD hingga 4K</strong>) dengan durasi pengerjaan yang cepat.
+                                </p>
+                            </div>
+                        </motion.div>
+
+                        {/* Services We Offer */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.15 }}
+                            className="mb-12 sm:mb-16"
+                        >
+                            <h2 className="text-xl sm:text-2xl font-semibold text-white mb-6 text-center">
+                                Layanan Editing Video Profesional
+                            </h2>
+
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                {services.map((service, index) => {
+                                    const Icon = service.icon;
+                                    return (
+                                        <motion.div
+                                            key={service.title}
+                                            initial={{ opacity: 0, y: 20 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            transition={{ delay: 0.2 + index * 0.1 }}
+                                            className="bg-zinc-900/50 backdrop-blur-sm border border-white/10 rounded-xl p-6"
+                                        >
+                                            <div className="flex items-start gap-4">
+                                                <div className="flex-shrink-0 w-12 h-12 rounded-full border border-white/20 flex items-center justify-center">
+                                                    <Icon className="w-6 h-6 text-white" />
+                                                </div>
+                                                <div>
+                                                    <h3 className="text-white font-bold text-base mb-2">{service.title}</h3>
+                                                    <p className="text-white/60 text-sm">{service.description}</p>
+                                                </div>
+                                            </div>
+                                        </motion.div>
+                                    );
+                                })}
+                            </div>
+                        </motion.div>
+
+                        {/* Workflow Steps */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.3 }}
                             className="mb-12 sm:mb-16"
                         >
                             <h2 className="text-xl sm:text-2xl font-semibold text-white mb-6 text-center">
@@ -105,7 +193,7 @@ export function ProfessionalEditingPage() {
                                                 key={step.id}
                                                 initial={{ opacity: 0, x: -20 }}
                                                 animate={{ opacity: 1, x: 0 }}
-                                                transition={{ delay: 0.1 + index * 0.1 }}
+                                                transition={{ delay: 0.3 + index * 0.1 }}
                                                 className="flex items-center gap-4 p-4 rounded-xl border border-white/10"
                                             >
                                                 <div className="flex-shrink-0 w-10 h-10 rounded-full border border-white/20 flex items-center justify-center">
@@ -126,7 +214,7 @@ export function ProfessionalEditingPage() {
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.3 }}
+                            transition={{ delay: 0.4 }}
                             className="mb-12 sm:mb-16"
                         >
                             <h2 className="text-xl sm:text-2xl font-semibold text-white mb-6 text-center">
@@ -134,13 +222,13 @@ export function ProfessionalEditingPage() {
                             </h2>
 
                             <div className="bg-zinc-900/50 backdrop-blur-sm border border-white/10 rounded-2xl p-6 sm:p-8">
-                                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                                     {features.map((feature, index) => (
                                         <motion.div
                                             key={feature}
                                             initial={{ opacity: 0, scale: 0.9 }}
                                             animate={{ opacity: 1, scale: 1 }}
-                                            transition={{ delay: 0.3 + index * 0.05 }}
+                                            transition={{ delay: 0.4 + index * 0.05 }}
                                             className="flex items-center gap-3 p-3 rounded-xl border border-white/10"
                                         >
                                             <div className="flex-shrink-0 w-6 h-6 rounded-full border border-white/20 flex items-center justify-center">

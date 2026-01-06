@@ -7,7 +7,10 @@ import {
     Cpu,
     MessageSquare,
     Send,
-    Check
+    Check,
+    Video,
+    Sparkles,
+    Zap
 } from 'lucide-react';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
@@ -39,21 +42,40 @@ const workflowSteps = [
     },
 ];
 
+const services = [
+    {
+        title: 'Video AI Realistis',
+        description: 'Pembuatan video dengan avatar AI atau teknologi image-to-video untuk presentasi dan iklan.',
+        icon: Video
+    },
+    {
+        title: 'AI Content Creation',
+        description: 'Produksi konten massal untuk TikTok dan Instagram menggunakan prompt engineering yang presisi.',
+        icon: Sparkles
+    },
+    {
+        title: 'Otomasi Konten UMKM',
+        description: 'Solusi bagi pemilik bisnis yang ingin tetap eksis di media sosial tanpa harus menghabiskan waktu berjam-jam.',
+        icon: Zap
+    },
+];
+
 const features = [
     'Video Eksklusif (Durasi hingga 1 menit)',
     'Character Konsisten AI',
     'Free Voice Over & Free Backsound Musik',
     'Editing Profesional & Hak Milik Penuh',
-    'Permintaan lain bisa langsung chat',
+    'Human Touch Quality (E-E-A-T)',
+    'Biaya Efisien untuk UMKM',
 ];
 
 export function AIContentServicePage() {
     return (
         <div className="min-h-screen bg-dark text-white overflow-x-hidden">
             <Helmet>
-                <title>Jasa Pembuatan Konten AI | Konsisten Character - Ikhsanztech</title>
-                <meta name="description" content="Jasa Pembuatan Konten AI profesional dengan teknologi Konsisten Character. Video eksklusif hingga 1 menit, AI voice over, editing profesional, dan revisi tak terbatas. Fast response 24/7." />
-                <meta name="keywords" content="Jasa Pembuatan Konten AI, AI Content Creation, Konsisten Character, Video AI, Konten AI Indonesia" />
+                <title>Jasa Pembuatan Konten AI Kreatif – Solusi Cerdas Bisnis Masa Depan | Ikhsanztech</title>
+                <meta name="description" content="Tingkatkan efisiensi bisnis dengan jasa pembuatan konten AI. Mulai dari video AI realistis, script writer, hingga konten media sosial otomatis." />
+                <meta name="keywords" content="Jasa Pembuatan Konten AI, AI Content Creation, Video AI, Konten AI Indonesia, UMKM Digital, Otomasi Konten" />
             </Helmet>
             <div className="ambient-gradient" />
             <div className="relative z-10">
@@ -82,7 +104,7 @@ export function AIContentServicePage() {
                                     <div className="rounded-2xl overflow-hidden border border-white/10">
                                         <img
                                             src="https://public.youware.com/image/68f5670c-baaa-4bc8-af11-37acaa7d70fe/rgzexzj724.png"
-                                            alt="Jasa Pembuatan Konten AI | Konsisten Character"
+                                            alt="Jasa Pembuatan Konten AI Kreatif"
                                             className="w-full h-auto object-cover"
                                         />
                                     </div>
@@ -90,10 +112,9 @@ export function AIContentServicePage() {
 
                                 {/* Title & Package Info */}
                                 <div className="w-full lg:w-1/2 text-center lg:text-left">
-                                    <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2">
-                                        Jasa Pembuatan Konten AI | Konsisten Character
+                                    <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">
+                                        Jasa Pembuatan Konten AI Kreatif – Solusi Cerdas Bisnis Masa Depan
                                     </h1>
-                                    <p className="text-white/60 text-lg mb-6">Paket Pro</p>
                                     <div className="bg-zinc-900/50 backdrop-blur-md border border-white/10 rounded-xl p-6">
                                         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
                                             <div>
@@ -110,11 +131,63 @@ export function AIContentServicePage() {
                             </div>
                         </motion.div>
 
-                        {/* Workflow Steps */}
+                        {/* Description Section */}
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.1 }}
+                            className="mb-12 sm:mb-16"
+                        >
+                            <div className="bg-zinc-900/50 backdrop-blur-md border border-white/10 rounded-2xl p-6 sm:p-8">
+                                <p className="text-white/80 text-base sm:text-lg leading-relaxed mb-6">
+                                    Selamat datang di <strong className="text-white">masa depan pemasaran digital</strong>. Ikhsanztech Studio memadukan kreativitas manusia dengan kecanggihan kecerdasan buatan melalui layanan <strong className="text-white">jasa pembuatan konten AI</strong>. Kami membantu UMKM di Indonesia bertransformasi ke era digital dengan biaya yang lebih efisien namun hasil tetap berkualitas premium.
+                                </p>
+                                <p className="text-white/80 text-base sm:text-lg leading-relaxed">
+                                    Kami memastikan setiap konten AI yang kami hasilkan tetap memiliki <strong className="text-white">'sentuhan manusia' (human touch)</strong> agar tetap relevan dan dipercaya oleh audiens Anda (E-E-A-T). Jadilah <strong className="text-white">pionir di industri Anda</strong> dengan memanfaatkan teknologi AI bersama spesialis yang tepat.
+                                </p>
+                            </div>
+                        </motion.div>
+
+                        {/* Services We Offer */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.15 }}
+                            className="mb-12 sm:mb-16"
+                        >
+                            <h2 className="text-xl sm:text-2xl font-semibold text-white mb-6 text-center">
+                                Layanan Unggulan AI Kami
+                            </h2>
+
+                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                                {services.map((service, index) => {
+                                    const Icon = service.icon;
+                                    return (
+                                        <motion.div
+                                            key={service.title}
+                                            initial={{ opacity: 0, y: 20 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            transition={{ delay: 0.2 + index * 0.1 }}
+                                            className="bg-zinc-900/50 backdrop-blur-md border border-white/10 rounded-xl p-6"
+                                        >
+                                            <div className="flex flex-col items-center text-center">
+                                                <div className="w-14 h-14 rounded-full border border-white/20 flex items-center justify-center mb-4">
+                                                    <Icon className="w-7 h-7 text-white" />
+                                                </div>
+                                                <h3 className="text-white font-bold text-base mb-2">{service.title}</h3>
+                                                <p className="text-white/60 text-sm">{service.description}</p>
+                                            </div>
+                                        </motion.div>
+                                    );
+                                })}
+                            </div>
+                        </motion.div>
+
+                        {/* Workflow Steps */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.25 }}
                             className="mb-12 sm:mb-16"
                         >
                             <h2 className="text-xl sm:text-2xl font-semibold text-white mb-6 text-center">
@@ -130,7 +203,7 @@ export function AIContentServicePage() {
                                                 key={step.id}
                                                 initial={{ opacity: 0, x: -20 }}
                                                 animate={{ opacity: 1, x: 0 }}
-                                                transition={{ delay: 0.1 + index * 0.1 }}
+                                                transition={{ delay: 0.25 + index * 0.1 }}
                                                 className="flex items-start gap-4 p-4 rounded-xl border border-white/10"
                                             >
                                                 <div className="flex-shrink-0 w-10 h-10 rounded-full border border-white/20 flex items-center justify-center">
@@ -152,7 +225,7 @@ export function AIContentServicePage() {
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.3 }}
+                            transition={{ delay: 0.35 }}
                             className="mb-12 sm:mb-16"
                         >
                             <h2 className="text-xl sm:text-2xl font-semibold text-white mb-6 text-center">
@@ -160,13 +233,13 @@ export function AIContentServicePage() {
                             </h2>
 
                             <div className="bg-zinc-900/50 backdrop-blur-md border border-white/10 rounded-2xl p-6 sm:p-8">
-                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                                     {features.map((feature, index) => (
                                         <motion.div
                                             key={feature}
                                             initial={{ opacity: 0, scale: 0.9 }}
                                             animate={{ opacity: 1, scale: 1 }}
-                                            transition={{ delay: 0.3 + index * 0.05 }}
+                                            transition={{ delay: 0.35 + index * 0.05 }}
                                             className="flex items-center gap-3 p-3 rounded-xl border border-white/10"
                                         >
                                             <div className="flex-shrink-0 w-6 h-6 rounded-full border border-white/20 flex items-center justify-center">
@@ -177,18 +250,6 @@ export function AIContentServicePage() {
                                     ))}
                                 </div>
                             </div>
-                        </motion.div>
-
-                        {/* Closing Text */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.4 }}
-                            className="mb-8 text-center"
-                        >
-                            <p className="text-white/60 text-sm sm:text-base max-w-2xl mx-auto">
-                                Kami menggunakan teknologi terbaru serta didukung tim profesional untuk menghasilkan video berkualitas tinggi yang disesuaikan dengan kebutuhanmu.
-                            </p>
                         </motion.div>
 
                         {/* CTA Button */}
@@ -202,7 +263,7 @@ export function AIContentServicePage() {
                                 Tertarik? Langsung Chat ya
                             </p>
                             <motion.a
-                                href="https://wa.me/6287877066270?text=Halo%20Ikhsanztech-studio%2C%20saya%20tertarik%20dengan%20Paket%20Pro%20Konten%20AI%20(Consistent%20Character).%20Mari%20kita%20ciptakan%20sesuatu%20yang%20tak%20terlupakan!"
+                                href="https://wa.me/6287877066270?text=Halo%20Ikhsanztech-studio%2C%20saya%20tertarik%20dengan%20Jasa%20Pembuatan%20Konten%20AI.%20Mari%20kita%20diskusikan%20kebutuhan%20bisnis%20saya!"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 whileHover={{ scale: 1.05 }}
