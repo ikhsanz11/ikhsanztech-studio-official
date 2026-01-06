@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import {
     ArrowLeft,
     FileText,
@@ -49,6 +50,11 @@ const features = [
 export function AIContentServicePage() {
     return (
         <div className="min-h-screen bg-dark text-white overflow-x-hidden">
+            <Helmet>
+                <title>Jasa Pembuatan Konten AI | Konsisten Character - Ikhsanztech</title>
+                <meta name="description" content="Jasa Pembuatan Konten AI profesional dengan teknologi Konsisten Character. Video eksklusif hingga 1 menit, AI voice over, editing profesional, dan revisi tak terbatas. Fast response 24/7." />
+                <meta name="keywords" content="Jasa Pembuatan Konten AI, AI Content Creation, Konsisten Character, Video AI, Konten AI Indonesia" />
+            </Helmet>
             <div className="ambient-gradient" />
             <div className="relative z-10">
                 <Header />
