@@ -15,7 +15,7 @@ const products = [
     id: 'flow-ai',
     name: 'FLOW AI 45000 KREDIT',
     description: 'Akses teknologi canggih Google dengan 45.000 Kredit Premium',
-    price: 'IDR 469.000',
+    price: 'IDR 669.000',
     originalPrice: 'IDR 3.849.000',
     image: '/flow-baru.jpg',
     category: 'account' as Category,

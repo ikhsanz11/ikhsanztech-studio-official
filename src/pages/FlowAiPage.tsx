@@ -54,7 +54,7 @@ export function FlowAiPage() {
                                 </p>
 
                                 <div className="flex items-baseline gap-3 mb-6">
-                                    <span className="text-3xl font-bold text-white">IDR 469.000</span>
+                                    <span className="text-3xl font-bold text-white">IDR 669.000</span>
                                     <span className="text-zinc-500 line-through">IDR 3.849.000</span>
                                 </div>
 
