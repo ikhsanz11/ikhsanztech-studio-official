@@ -5,8 +5,7 @@ export interface Product {
     id: string;
     name: string;
     description: string;
-    basePrice: number; // Harga dasar sebelum biaya admin
-    price: number; // Harga total termasuk biaya admin
+    price: number; // Harga dalam Rupiah (e.g., 669000)
     displayPrice: string; // Format display (e.g., "IDR 669.000")
     originalPrice: string;
     image: string;
@@ -14,15 +13,11 @@ export interface Product {
     features?: string[];
 }
 
-// Admin fee is approximately 3% of base price
-export const ADMIN_FEE_PERCENT = 0.03;
-
 export const products: Product[] = [
     {
         id: 'flow-ai',
         name: 'FLOW AI 45000 KREDIT',
         description: 'Akses teknologi canggih Google dengan 45.000 Kredit Premium',
-        basePrice: 650000,
         price: 669000,
         displayPrice: 'IDR 669.000',
         originalPrice: 'IDR 3.849.000',
@@ -41,7 +36,6 @@ export const products: Product[] = [
         id: 'higgsfield-ai',
         name: 'HIGGSFIELD AI 1200C',
         description: 'Teknologi pergerakan video AI paling halus untuk kreator profesional',
-        basePrice: 485000,
         price: 499000,
         displayPrice: 'IDR 499.000',
         originalPrice: 'IDR 855.000',
@@ -58,7 +52,6 @@ export const products: Product[] = [
         id: 'video-gen',
         name: 'Video Prompt Generator',
         description: 'Ubah gambar statis menjadi video AI sinematik sekelas film profesional',
-        basePrice: 164000,
         price: 169000,
         displayPrice: 'IDR 169.000',
         originalPrice: 'IDR 799.000',
@@ -75,7 +68,6 @@ export const products: Product[] = [
         id: 'image-gen',
         name: 'Image Prompt Generator',
         description: 'Bangun adegan AI sinematik dan ultra-realistis setara kualitas film',
-        basePrice: 145000,
         price: 149000,
         displayPrice: 'IDR 149.000',
         originalPrice: 'IDR 599.000',
@@ -92,7 +84,6 @@ export const products: Product[] = [
         id: 'kelas-ai',
         name: 'Group WhatsApp',
         description: 'Akses eksklusif ke komunitas kreator, belajar strategi viral, dan gratis akses ChatGPT 5.0 serta Sora 2 selama 3 bulan.',
-        basePrice: 582000,
         price: 599000,
         displayPrice: 'IDR 599.000',
         originalPrice: 'IDR 1.499.000',
@@ -109,7 +100,6 @@ export const products: Product[] = [
         id: 'nano-banana',
         name: 'Nano Banana Image Gen',
         description: 'Bangun konsistensi karakter sekali klik. Cukup upload 1 foto untuk hasilkan ratusan pose sinematik.',
-        basePrice: 135000,
         price: 139000,
         displayPrice: 'IDR 139.000',
         originalPrice: 'IDR 499.000',
@@ -126,7 +116,6 @@ export const products: Product[] = [
         id: 'sora2-prompt',
         name: 'Sora2 Smart Prompt',
         description: 'Ubah gambar statis menjadi video hidup dengan detail sinematik dan kendali kamera penuh.',
-        basePrice: 135000,
         price: 139000,
         displayPrice: 'IDR 139.000',
         originalPrice: 'IDR 465.000',
@@ -143,7 +132,6 @@ export const products: Product[] = [
         id: 'veo3-prompt',
         name: 'Veo 3.1 Smart Prompt',
         description: 'Generator prompt khusus untuk model Veo 3.1, menghasilkan atmosfer film profesional kelas dunia.',
-        basePrice: 135000,
         price: 139000,
         displayPrice: 'IDR 139.000',
         originalPrice: 'IDR 465.000',
@@ -160,7 +148,6 @@ export const products: Product[] = [
         id: 'nano-workflow',
         name: 'Nano Banana Workflow',
         description: 'Bongkar rahasia workflow asli dari Ikhsanztech Studio. Dari satu gambar jadi film sinematik utuh.',
-        basePrice: 261000,
         price: 269000,
         displayPrice: 'IDR 269.000',
         originalPrice: 'IDR 750.000',
@@ -177,7 +164,6 @@ export const products: Product[] = [
         id: 'speedramp-workflow',
         name: 'Speedramp Effect Workflow',
         description: 'Mindset AI Video Director dengan tutorial Nano Banana Pro. Efek cinematic profesional untuk video Anda.',
-        basePrice: 193000,
         price: 199000,
         displayPrice: 'IDR 199.000',
         originalPrice: 'IDR 899.000',
@@ -194,7 +180,6 @@ export const products: Product[] = [
         id: 'nsfw-ai',
         name: 'NSFW AI Website (18++ ONLY)',
         description: '18++ ONLY. Akses website AI premium untuk kreator dewasa. Penggunaan sesuai tanggung jawab masing-masing.',
-        basePrice: 679000,
         price: 699000,
         displayPrice: 'IDR 699.000',
         originalPrice: 'IDR 1.200.000',
@@ -211,7 +196,6 @@ export const products: Product[] = [
         id: 'chatgpt-plus',
         name: 'ChatGPT Plus 5.2 (3 Bulan)',
         description: 'Akses ChatGPT Plus resmi durasi 3 Bulan. Admin Fast Respon 24/7 siap membantu.',
-        basePrice: 155000,
         price: 160000,
         displayPrice: 'IDR 160.000',
         originalPrice: 'IDR 960.000',
@@ -228,7 +212,6 @@ export const products: Product[] = [
         id: 'credit-card',
         name: 'Credit Card Pembayaran',
         description: 'Solusi resmi untuk aktivasi trial platform global (Midjourney, Adobe, dll.) dengan garansi 100% berhasil.',
-        basePrice: 242000,
         price: 249000,
         displayPrice: 'IDR 249.000',
         originalPrice: 'IDR 400.000',
@@ -251,14 +234,4 @@ export function getProductById(id: string): Product | undefined {
 // Helper function to get products by category
 export function getProductsByCategory(category: Product['category']): Product[] {
     return products.filter(product => product.category === category);
-}
-
-// Helper function to format price in Rupiah
-export function formatRupiah(amount: number): string {
-    return `IDR ${amount.toLocaleString('id-ID')}`;
-}
-
-// Calculate admin fee from product
-export function getAdminFee(product: Product): number {
-    return product.price - product.basePrice;
 }

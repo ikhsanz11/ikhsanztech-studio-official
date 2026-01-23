@@ -179,27 +179,10 @@ export function MidtransCheckout({
                             <div className="mb-6">
                                 <h2 className="text-xl font-bold text-white mb-2">Checkout</h2>
                                 <div className="p-4 bg-white/5 rounded-xl border border-white/10">
-                                    <p className="text-white font-semibold mb-3">{product.name}</p>
-
-                                    {/* Price Breakdown */}
-                                    <div className="space-y-2 text-sm">
-                                        <div className="flex justify-between text-white/70">
-                                            <span>Harga Produk</span>
-                                            <span>IDR {product.basePrice.toLocaleString('id-ID')}</span>
-                                        </div>
-                                        <div className="flex justify-between text-white/70">
-                                            <span>Biaya Admin</span>
-                                            <span>IDR {(product.price - product.basePrice).toLocaleString('id-ID')}</span>
-                                        </div>
-                                        <div className="border-t border-white/10 pt-2 mt-2">
-                                            <div className="flex justify-between items-baseline">
-                                                <span className="font-semibold text-white">Total Bayar</span>
-                                                <div className="text-right">
-                                                    <span className="text-lg font-bold text-white">{product.displayPrice}</span>
-                                                    <span className="block text-xs text-white/40 line-through">{product.originalPrice}</span>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <p className="text-white font-semibold">{product.name}</p>
+                                    <div className="flex items-baseline gap-2 mt-1">
+                                        <span className="text-lg font-bold text-white">{product.displayPrice}</span>
+                                        <span className="text-sm text-white/40 line-through">{product.originalPrice}</span>
                                     </div>
                                 </div>
                             </div>
