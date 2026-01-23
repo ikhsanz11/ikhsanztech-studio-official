@@ -147,7 +147,7 @@ const products = [
     description: 'Solusi resmi untuk aktivasi trial platform global (Midjourney, Adobe, dll.) dengan garansi 100% berhasil.',
     price: 'IDR 249.000',
     originalPrice: 'IDR 400.000',
-    image: '/cc-payment.jpg',
+    image: '/cc-payment.png',
     category: 'account' as Category,
     whatsappLink: 'https://wa.me/6287877066270?text=Halo%20Ikhsanztech-studio,%20saya%20ingin%20membeli%20Credit%20Card%20Pembayaran.%20Mohon%20info%20pembayarannya.',
   },

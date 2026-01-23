@@ -239,7 +239,7 @@ export const products: Product[] = [
         price: 249000,
         displayPrice: 'IDR 249.000',
         originalPrice: 'IDR 400.000',
-        image: '/cc-payment.jpg',
+        image: '/cc-payment.png',
         category: 'account',
         features: [
             'Aktivasi Trial Platform Global',
