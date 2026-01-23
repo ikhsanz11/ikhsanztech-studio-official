@@ -269,7 +269,7 @@ export function MidtransCheckout({
 
                                 {/* Payment Methods Info */}
                                 <p className="text-center text-xs text-white/40 mt-4">
-                                    Pembayaran aman via Midtrans. Mendukung QRIS, Virtual Account, E-Wallet, dan Kartu Kredit.
+                                    Pembayaran aman. Mendukung QRIS, Virtual Account, E-Wallet, dan Kartu Kredit.
                                 </p>
                             </form>
                         </motion.div>
