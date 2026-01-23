@@ -21,7 +21,7 @@ export const products: Product[] = [
         price: 669000,
         displayPrice: 'IDR 669.000',
         originalPrice: 'IDR 3.849.000',
-        image: '/flow-baru.jpg',
+        image: '/flow-baru.png',
         category: 'account',
         features: [
             '45.000 Kredit Premium',

@@ -17,7 +17,7 @@ const products = [
     description: 'Akses teknologi canggih Google dengan 45.000 Kredit Premium',
     price: 'IDR 669.000',
     originalPrice: 'IDR 3.849.000',
-    image: '/flow-baru.jpg',
+    image: '/flow-baru.png',
     category: 'account' as Category,
     whatsappLink: 'https://wa.me/6287877066270?text=Halo,%20saya%20ingin%20membeli%20paket%20FLOW%20AI%2045000%20KREDIT.',
   },
