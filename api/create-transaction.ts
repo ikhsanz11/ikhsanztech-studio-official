@@ -2,6 +2,7 @@
 // POST /api/create-transaction
 
 import type { VercelRequest, VercelResponse } from '@vercel/node';
+import https from 'https';
 
 // Midtrans Snap API configuration
 const MIDTRANS_SNAP_URL = process.env.MIDTRANS_IS_PRODUCTION === 'true'
@@ -25,6 +26,20 @@ function setCorsHeaders(res: VercelResponse) {
     res.setHeader('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version');
 }
 
+// Helper function to make HTTPS request
+function httpsRequest(url: string, options: https.RequestOptions, data: string): Promise<{ status: number; body: string }> {
+    return new Promise((resolve, reject) => {
+        const req = https.request(url, options, (res) => {
+            let body = '';
+            res.on('data', (chunk) => body += chunk);
+            res.on('end', () => resolve({ status: res.statusCode || 500, body }));
+        });
+        req.on('error', reject);
+        req.write(data);
+        req.end();
+    });
+}
+
 export default async function handler(req: VercelRequest, res: VercelResponse) {
     // Set CORS headers for all requests
     setCorsHeaders(res);
@@ -40,12 +55,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     }
 
     try {
-        const { productId, productName, productPrice, customerName, customerEmail, customerPhone } = req.body as TransactionRequest;
+        const body = req.body as TransactionRequest;
+        const { productId, productName, productPrice, customerName, customerEmail, customerPhone } = body;
 
         // Validate required fields
         if (!productId || !productName || !productPrice || !customerName || !customerEmail) {
             return res.status(400).json({
-                error: 'Missing required fields: productId, productName, productPrice, customerName, customerEmail'
+                error: 'Missing required fields',
+                received: { productId, productName, productPrice, customerName, customerEmail }
             });
         }
 
@@ -53,9 +70,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         const orderId = `ORDER-${productId.toUpperCase()}-${Date.now()}`;
 
         // Get base URL for callback
-        const baseUrl = process.env.VERCEL_URL
-            ? `https://${process.env.VERCEL_URL}`
-            : 'https://ikhsanztech.com';
+        const baseUrl = 'https://ikhsanztech.com';
 
         // Midtrans transaction payload
         const transactionPayload = {
@@ -68,7 +83,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                     id: productId,
                     price: productPrice,
                     quantity: 1,
-                    name: productName.substring(0, 50), // Midtrans limit 50 chars
+                    name: productName.substring(0, 50),
                 },
             ],
             customer_details: {
@@ -84,46 +99,45 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         // Get Server Key from environment
         const serverKey = process.env.MIDTRANS_SERVER_KEY;
         if (!serverKey) {
-            console.error('MIDTRANS_SERVER_KEY not found in environment');
-            return res.status(500).json({ error: 'Midtrans server key not configured' });
+            console.error('MIDTRANS_SERVER_KEY not found');
+            return res.status(500).json({ error: 'Server key not configured' });
         }
 
         // Create authorization header (Base64 encoded server key)
         const authHeader = Buffer.from(`${serverKey}:`).toString('base64');
 
-        console.log('Creating transaction with Midtrans...', {
-            orderId,
-            productId,
-            productPrice,
-            customerEmail,
-            snapUrl: MIDTRANS_SNAP_URL
-        });
+        // Prepare request
+        const postData = JSON.stringify(transactionPayload);
+        const urlObj = new URL(MIDTRANS_SNAP_URL);
 
-        // Call Midtrans Snap API
-        const response = await fetch(MIDTRANS_SNAP_URL, {
+        const options: https.RequestOptions = {
+            hostname: urlObj.hostname,
+            port: 443,
+            path: urlObj.pathname,
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
                 'Authorization': `Basic ${authHeader}`,
+                'Content-Length': Buffer.byteLength(postData),
             },
-            body: JSON.stringify(transactionPayload),
-        });
+        };
 
-        const data = await response.json();
+        console.log('Calling Midtrans API:', urlObj.hostname);
 
-        if (!response.ok) {
-            console.error('Midtrans API Error:', JSON.stringify(data, null, 2));
+        // Call Midtrans Snap API
+        const response = await httpsRequest(MIDTRANS_SNAP_URL, options, postData);
+        const data = JSON.parse(response.body);
+
+        if (response.status !== 201 && response.status !== 200) {
+            console.error('Midtrans API Error:', data);
             return res.status(response.status).json({
                 error: 'Failed to create transaction',
                 details: data
             });
         }
 
-        console.log('Transaction created successfully:', {
-            orderId,
-            token: data.token ? 'received' : 'missing'
-        });
+        console.log('Transaction created:', orderId);
 
         // Return snap token and redirect URL
         return res.status(200).json({
