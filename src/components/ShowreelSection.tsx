@@ -19,7 +19,7 @@ export function ShowreelSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="font-playfair text-2xl sm:text-3xl md:text-4xl font-semibold text-white mb-4 tracking-wide">Portofolio
+          <h2 className="font-sora text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 uppercase tracking-widest">PORTOFOLIO
           </h2>
           <p className="text-white/70 max-w-2xl mx-auto text-sm sm:text-base font-light">
             Lihat hasil karya terbaik kami dalam editing video, motion graphics, dan konten kreatif

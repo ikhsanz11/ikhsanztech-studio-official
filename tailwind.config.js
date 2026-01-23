@@ -13,8 +13,6 @@ export default {
         'electric-purple': '#7C3AED',
       },
       fontFamily: {
-        'playfair': ['Playfair Display', 'serif'],
-        'cormorant': ['Cormorant Garamond', 'serif'],
         'sora': ['Sora', 'sans-serif'],
         'inter': ['Inter', 'sans-serif'],
       },
