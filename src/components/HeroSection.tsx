@@ -12,7 +12,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="font-sora text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-bold mb-4 uppercase tracking-widest text-white"
+          className="font-playfair text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-semibold mb-4 tracking-wide text-white"
         >
           BEYOND VISUALS.
         </motion.h1>

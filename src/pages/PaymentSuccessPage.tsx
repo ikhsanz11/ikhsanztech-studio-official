@@ -35,7 +35,7 @@ export function PaymentSuccessPage() {
                         <div className="w-24 h-24 mx-auto bg-green-500/20 rounded-full flex items-center justify-center mb-6">
                             <CheckCircle className="w-14 h-14 text-green-400" />
                         </div>
-                        <h1 className="font-sora text-3xl sm:text-4xl font-bold text-white mb-4">
+                        <h1 className="font-playfair text-3xl sm:text-4xl font-semibold text-white mb-4">
                             Pembayaran Berhasil! 🎉
                         </h1>
                         <p className="text-white/70 text-lg mb-2">

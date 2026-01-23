@@ -52,7 +52,7 @@ export function ProductPageLayout({ productId }: ProductPageLayoutProps) {
                             </div>
 
                             <div className="w-full lg:w-1/2 bg-zinc-900/40 backdrop-blur-md border border-white/10 rounded-2xl p-6 lg:p-8">
-                                <h1 className="font-sora text-2xl sm:text-3xl font-bold text-white mb-4">
+                                <h1 className="font-playfair text-2xl sm:text-3xl font-semibold text-white mb-4">
                                     {product.name}
                                 </h1>
 
