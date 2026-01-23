@@ -220,7 +220,7 @@ function ProductCard({ product, index }: { product: typeof products[0]; index: n
 
 
 export function ProductsSection() {
-  const [activeCategory, setActiveCategory] = useState<Category>('prompt-gen');
+  const [activeCategory, setActiveCategory] = useState<Category>('account');
 
   const filteredProducts = products.filter(product => product.category === activeCategory);
 
