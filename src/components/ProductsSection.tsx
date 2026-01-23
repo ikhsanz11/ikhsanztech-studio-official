@@ -22,6 +22,16 @@ const products = [
     whatsappLink: 'https://wa.me/6287877066270?text=Halo,%20saya%20ingin%20membeli%20paket%20FLOW%20AI%2045000%20KREDIT.',
   },
   {
+    id: 'google-ai-ultra',
+    name: 'Google AI Ultra Privat | 45000 KREDIT',
+    description: 'Gemini AI Pro | Google AI Pro Privat | VEO 3.1. Akses langsung ke teknologi canggih Google!',
+    price: 'IDR 669.000',
+    originalPrice: 'IDR 3.849.000',
+    image: '/googleaiultra-baru.jpg',
+    category: 'account' as Category,
+    whatsappLink: 'https://wa.me/6287877066270?text=Halo,%20saya%20ingin%20membeli%20Google%20AI%20Ultra%20Privat.',
+  },
+  {
     id: 'higgsfield-ai',
     name: 'HIGGSFIELD AI 1200C',
     description: 'Teknologi pergerakan video AI paling halus untuk kreator profesional',
