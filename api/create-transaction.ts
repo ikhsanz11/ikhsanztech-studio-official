@@ -17,19 +17,26 @@ interface TransactionRequest {
     customerPhone?: string;
 }
 
+// Helper to set CORS headers
+function setCorsHeaders(res: VercelResponse) {
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
+    res.setHeader('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version');
+}
+
 export default async function handler(req: VercelRequest, res: VercelResponse) {
+    // Set CORS headers for all requests
+    setCorsHeaders(res);
+
+    // Handle preflight OPTIONS request
+    if (req.method === 'OPTIONS') {
+        return res.status(200).end();
+    }
+
     // Only allow POST
     if (req.method !== 'POST') {
         return res.status(405).json({ error: 'Method not allowed' });
-    }
-
-    // CORS headers
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-
-    if (req.method === 'OPTIONS') {
-        return res.status(200).end();
     }
 
     try {
@@ -44,6 +51,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
         // Generate unique order ID
         const orderId = `ORDER-${productId.toUpperCase()}-${Date.now()}`;
+
+        // Get base URL for callback
+        const baseUrl = process.env.VERCEL_URL
+            ? `https://${process.env.VERCEL_URL}`
+            : 'https://ikhsanztech.com';
 
         // Midtrans transaction payload
         const transactionPayload = {
@@ -65,24 +77,34 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                 phone: customerPhone || '',
             },
             callbacks: {
-                finish: `${process.env.VERCEL_URL || 'http://localhost:5173'}/payment-success?order_id=${orderId}`,
+                finish: `${baseUrl}/payment-success?order_id=${orderId}`,
             },
         };
 
         // Get Server Key from environment
         const serverKey = process.env.MIDTRANS_SERVER_KEY;
         if (!serverKey) {
+            console.error('MIDTRANS_SERVER_KEY not found in environment');
             return res.status(500).json({ error: 'Midtrans server key not configured' });
         }
 
         // Create authorization header (Base64 encoded server key)
         const authHeader = Buffer.from(`${serverKey}:`).toString('base64');
 
+        console.log('Creating transaction with Midtrans...', {
+            orderId,
+            productId,
+            productPrice,
+            customerEmail,
+            snapUrl: MIDTRANS_SNAP_URL
+        });
+
         // Call Midtrans Snap API
         const response = await fetch(MIDTRANS_SNAP_URL, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                'Accept': 'application/json',
                 'Authorization': `Basic ${authHeader}`,
             },
             body: JSON.stringify(transactionPayload),
@@ -91,12 +113,17 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         const data = await response.json();
 
         if (!response.ok) {
-            console.error('Midtrans API Error:', data);
+            console.error('Midtrans API Error:', JSON.stringify(data, null, 2));
             return res.status(response.status).json({
                 error: 'Failed to create transaction',
                 details: data
             });
         }
+
+        console.log('Transaction created successfully:', {
+            orderId,
+            token: data.token ? 'received' : 'missing'
+        });
 
         // Return snap token and redirect URL
         return res.status(200).json({
