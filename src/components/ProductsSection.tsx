@@ -37,7 +37,7 @@ const products = [
     description: 'Teknologi pergerakan video AI paling halus untuk kreator profesional',
     price: 'IDR 499.000',
     originalPrice: 'IDR 855.000',
-    image: '/higgsfield-baru.jpg',
+    image: '/higgsfield-baru.png',
     category: 'account' as Category,
     whatsappLink: 'https://wa.me/6287877066270?text=Halo,%20saya%20ingin%20membeli%20paket%20HIGGSFIELD%20AI%201200C.',
   },

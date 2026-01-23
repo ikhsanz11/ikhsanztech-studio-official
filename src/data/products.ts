@@ -59,7 +59,7 @@ export const products: Product[] = [
         price: 499000,
         displayPrice: 'IDR 499.000',
         originalPrice: 'IDR 855.000',
-        image: '/higgsfield-baru.jpg',
+        image: '/higgsfield-baru.png',
         category: 'account',
         features: [
             '1200 Kredit Premium',
