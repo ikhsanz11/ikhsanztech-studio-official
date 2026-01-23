@@ -1,4 +1,4 @@
-module.exports = async function handler(req, res) {
+export default async function handler(req, res) {
     // Set CORS
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -25,7 +25,6 @@ module.exports = async function handler(req, res) {
             if (fraudStatus === 'accept' || !fraudStatus) {
                 console.log(`Payment successful for order: ${orderId}`);
 
-                // Send WhatsApp notification to admin
                 const adminPhone = process.env.WHATSAPP_ADMIN_NUMBER || '6287877066270';
                 const message = `🎉 Pembayaran Berhasil!\n\nOrder ID: ${orderId}\nStatus: ${transactionStatus}\nAmount: IDR ${notification.gross_amount}`;
 
@@ -38,4 +37,4 @@ module.exports = async function handler(req, res) {
         console.error('Notification error:', error);
         return res.status(500).json({ error: 'Internal server error' });
     }
-};
+}
