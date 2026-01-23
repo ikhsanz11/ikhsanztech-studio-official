@@ -5,9 +5,9 @@ import { useState } from 'react';
 type Category = 'prompt-gen' | 'workflow' | 'account';
 
 const categories: { id: Category; label: string }[] = [
+  { id: 'account', label: 'Premium Account' },
   { id: 'prompt-gen', label: 'Prompt Gen' },
   { id: 'workflow', label: 'AI Workflow' },
-  { id: 'account', label: 'Premium Account' },
 ];
 
 const products = [
