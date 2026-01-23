@@ -56,3 +56,4 @@ coverage/
 *.mov
 *.avi
 *.mkv
+.env.local

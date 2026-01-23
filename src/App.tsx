@@ -31,6 +31,7 @@ import { SpeedrampWorkflowPage } from "./pages/SpeedrampWorkflowPage";
 import { NsfwAiPage } from "./pages/NsfwAiPage";
 import { ChatgptPlusPage } from "./pages/ChatgptPlusPage";
 import { CreditCardPage } from "./pages/CreditCardPage";
+import { PaymentSuccessPage } from "./pages/PaymentSuccessPage";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
@@ -131,6 +132,8 @@ function App() {
           <Route path="/produk/nsfw-ai" element={<NsfwAiPage />} />
           <Route path="/produk/chatgpt-plus" element={<ChatgptPlusPage />} />
           <Route path="/produk/credit-card" element={<CreditCardPage />} />
+          {/* Payment Success Page */}
+          <Route path="/payment-success" element={<PaymentSuccessPage />} />
         </Routes>
       </Router>
     </>
