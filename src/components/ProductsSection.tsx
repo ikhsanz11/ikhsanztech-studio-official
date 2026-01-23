@@ -62,16 +62,6 @@ const products = [
     whatsappLink: 'https://wa.me/6287877066270?text=Halo,%20saya%20ingin%20membeli%20Image%20Prompt%20Gen.',
   },
   {
-    id: 'kelas-ai',
-    name: 'Group WhatsApp',
-    description: 'Akses eksklusif ke komunitas kreator, belajar strategi viral, dan gratis akses ChatGPT 5.0 serta Sora 2 selama 3 bulan.',
-    price: 'IDR 599.000',
-    originalPrice: 'IDR 1.499.000',
-    image: '/wa-group-thumb.jpg',
-    category: 'account' as Category,
-    whatsappLink: 'https://wa.me/6287877066270?text=Halo%20Ikhsanztech-studio,%20saya%20ingin%20membeli%20Group%20WhatsApp.',
-  },
-  {
     id: 'nano-banana',
     name: 'Nano Banana Image Gen',
     description: 'Bangun konsistensi karakter sekali klik. Cukup upload 1 foto untuk hasilkan ratusan pose sinematik.',

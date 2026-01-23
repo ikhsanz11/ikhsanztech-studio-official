@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 export function HeroSection() {
   return (
@@ -37,12 +38,12 @@ export function HeroSection() {
           Membawa ide digital Anda ke level profesional melalui kekuatan AI dan desain kreatif.
         </motion.p>
 
-        {/* CTA Button */}
+        {/* CTA Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="flex items-center justify-center"
+          className="flex flex-wrap items-center justify-center gap-4"
         >
           <motion.a
             href="https://wa.me/message/3VBAYSQKPXSYB1"
@@ -52,6 +53,16 @@ export function HeroSection() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >Hubungi Kami</motion.a>
+
+          <Link to="/produk/kelas-ai">
+            <motion.div
+              className="inline-flex items-center justify-center bg-gradient-to-r from-purple-600/80 to-blue-600/80 backdrop-blur-md hover:from-purple-600 hover:to-blue-600 text-white font-bold px-8 py-4 rounded-full border border-white/20 hover:border-white/30 transition-all duration-300"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              🎓 Belajar AI
+            </motion.div>
+          </Link>
         </motion.div>
       </div>
 
