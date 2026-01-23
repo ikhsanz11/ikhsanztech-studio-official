@@ -5,6 +5,7 @@ const navItems = [
   { name: 'Jasa Kami', href: '/jasa-kami' },
   { name: 'Produk Digital', href: '/produk-digital' },
   { name: 'Portofolio', href: '/portofolio' },
+  { name: 'Belajar AI', href: '/produk/kelas-ai' },
 ];
 
 export function Header() {
