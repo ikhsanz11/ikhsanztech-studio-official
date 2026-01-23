@@ -137,7 +137,7 @@ const products = [
     description: 'ChatGPT Plus dengan fitur lengkap: Codex, Sora, mode agen, dan memori percakapan.',
     price: 'IDR 190.000',
     originalPrice: 'IDR 1.047.000',
-    image: '/chatgpt-plus.jpg',
+    image: '/chatgpt-plus.png',
     category: 'account' as Category,
     whatsappLink: 'https://wa.me/6287877066270?text=Halo%20Ikhsanztech-studio,%20saya%20ingin%20membeli%20ChatGPT%20Plus%205.2%20(3%20Bulan).%20Mohon%20info%20pembayarannya.',
   },

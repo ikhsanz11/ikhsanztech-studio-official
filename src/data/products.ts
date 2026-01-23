@@ -219,7 +219,7 @@ export const products: Product[] = [
         price: 190000,
         displayPrice: 'IDR 190.000',
         originalPrice: 'IDR 1.047.000',
-        image: '/chatgpt-plus.jpg',
+        image: '/chatgpt-plus.png',
         category: 'account',
         features: [
             'Selesaikan masalah yang kompleks',
