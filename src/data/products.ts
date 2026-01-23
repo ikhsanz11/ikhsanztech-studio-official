@@ -204,7 +204,7 @@ export const products: Product[] = [
         displayPrice: 'IDR 699.000',
         originalPrice: 'IDR 1.200.000',
         image: '/nsfw-guide.jpg',
-        category: 'account',
+        category: 'prompt-gen',
         features: [
             'Akses Website Premium',
             '18++ Only',

@@ -128,7 +128,7 @@ const products = [
     price: 'IDR 699.000',
     originalPrice: 'IDR 1.200.000',
     image: '/nsfw-guide.jpg',
-    category: 'account' as Category,
+    category: 'prompt-gen' as Category,
     whatsappLink: 'https://wa.me/6287877066270?text=Halo%20Ikhsanztech-studio,%20saya%20ingin%20membeli%20NSFW%20AI%20Website.%20Mohon%20info%20pembayarannya.',
   },
   {
