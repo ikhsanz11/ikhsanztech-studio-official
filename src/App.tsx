@@ -8,6 +8,7 @@ import { ProductsSection } from "./components/ProductsSection";
 import { TestimonialsSection } from "./components/TestimonialsSection";
 import { Footer } from "./components/Footer";
 import { FlowAiPage } from "./pages/FlowAiPage";
+import { GoogleAiUltraPage } from "./pages/GoogleAiUltraPage";
 import { HiggsfieldAiPage } from "./pages/HiggsfieldAiPage";
 import { VideoGenPage } from "./pages/VideoGenPage";
 import { ImageGenPage } from "./pages/ImageGenPage";
@@ -109,6 +110,7 @@ function App() {
           <Route path="/portofolio" element={<HomePage />} />
           {/* Product pages */}
           <Route path="/produk/flow-ai" element={<FlowAiPage />} />
+          <Route path="/produk/google-ai-ultra" element={<GoogleAiUltraPage />} />
           <Route path="/produk/higgsfield-ai" element={<HiggsfieldAiPage />} />
           <Route path="/produk/video-gen" element={<VideoGenPage />} />
           <Route path="/produk/image-gen" element={<ImageGenPage />} />
