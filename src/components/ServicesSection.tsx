@@ -106,9 +106,7 @@ export function ServicesSection() {
   };
 
   return (
-    <section id="jasa-kami" ref={sectionRef} className="section-fade-bottom relative py-20 overflow-hidden">
-      {/* Background gradient matching site theme */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-gradient-to-t from-purple-900/20 to-transparent rounded-full blur-3xl pointer-events-none" />
+    <section id="jasa-kami" ref={sectionRef} className="relative py-20 overflow-hidden">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -138,11 +136,11 @@ export function ServicesSection() {
                   onClick={() => setCurrentIndex(index)}
                   whileTap={{ scale: 0.95 }}
                   className={`relative flex flex-col items-center justify-center p-3 rounded-xl transition-all duration-300 ${isActive
-                    ? 'bg-purple-600/30 border-2 border-purple-500 shadow-[0_0_20px_rgba(139,92,246,0.4)]'
+                    ? 'bg-blue-600/30 border-2 border-blue-500 shadow-[0_0_20px_rgba(59,130,246,0.4)]'
                     : 'bg-zinc-900/40 border border-white/10 hover:border-white/30'
                     }`}
                 >
-                  <Icon className={`w-6 h-6 mb-1 ${isActive ? 'text-purple-400' : 'text-white/70'}`} />
+                  <Icon className={`w-6 h-6 mb-1 ${isActive ? 'text-blue-400' : 'text-white/70'}`} />
                   <span className={`text-[10px] text-center leading-tight ${isActive ? 'text-white font-semibold' : 'text-white/60'}`}>
                     {service.shortTitle}
                   </span>

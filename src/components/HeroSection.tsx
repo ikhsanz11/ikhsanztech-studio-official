@@ -2,9 +2,7 @@ import { motion } from 'framer-motion';
 
 export function HeroSection() {
   return (
-    <section id="home" className="section-fade-bottom relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden bg-[#09090b]">
-      {/* Purple Glow at Top */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-purple-900/30 blur-[120px] pointer-events-none" />
+    <section id="home" className="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden">
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Main Headline */}

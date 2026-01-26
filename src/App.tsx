@@ -78,9 +78,9 @@ function ScrollToSection() {
 
 function HomePage() {
   return (
-    <div className="min-h-screen bg-dark text-white overflow-x-hidden">
-      {/* Ambient Background Gradient */}
-      <div className="ambient-gradient" />
+    <div className="min-h-screen text-white overflow-x-hidden">
+      {/* Global Fixed Background - Parallax Effect */}
+      <div className="global-fixed-bg" />
 
       {/* Main Content */}
       <div className="relative z-10">

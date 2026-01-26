@@ -21,7 +21,9 @@ export function PaymentSuccessPage() {
     const whatsappLink = `https://wa.me/6287877066270?text=${whatsappMessage}`;
 
     return (
-        <div className="min-h-screen bg-black text-white overflow-x-hidden">
+        <div className="min-h-screen text-white overflow-x-hidden">
+            {/* Global Fixed Background */}
+            <div className="global-fixed-bg" />
             <Header />
 
             <section className="pt-32 pb-20 px-4 sm:px-6">

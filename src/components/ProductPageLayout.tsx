@@ -15,25 +15,30 @@ export function ProductPageLayout({ productId }: ProductPageLayoutProps) {
 
     if (!product) {
         return (
-            <div className="min-h-screen bg-black text-white flex items-center justify-center">
-                <p>Product not found</p>
+            <div className="min-h-screen text-white flex items-center justify-center">
+                {/* Global Fixed Background */}
+                <div className="global-fixed-bg" />
+                <p className="relative z-10">Product not found</p>
             </div>
         );
     }
 
     return (
-        <div className="min-h-screen bg-black text-white overflow-x-hidden">
+        <div className="min-h-screen text-white overflow-x-hidden">
+            {/* Global Fixed Background - Parallax Effect */}
+            <div className="global-fixed-bg" />
+
             <Header />
 
             <Link
                 to="/"
-                className="fixed top-20 sm:top-24 left-4 sm:left-6 z-50 inline-flex items-center gap-2 text-white font-medium hover:text-white/70 transition-colors bg-black/30 sm:bg-white/10 backdrop-blur-sm px-3 sm:px-4 py-2 rounded-full border border-white/20 hover:bg-white/20 text-sm sm:text-base"
+                className="fixed top-[72px] sm:top-20 left-4 sm:left-6 z-50 inline-flex items-center gap-1.5 sm:gap-2 text-white/90 text-xs sm:text-sm font-medium hover:text-white transition-colors bg-black/60 backdrop-blur-sm px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-full border border-white/10 hover:bg-black/80"
             >
-                <ArrowLeft className="w-4 h-4" />
+                <ArrowLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 <span className="hidden sm:inline">Kembali</span>
             </Link>
 
-            <section className="pt-32 sm:pt-28 pb-16 px-4 sm:px-6">
+            <section className="pt-28 sm:pt-32 pb-16 px-4 sm:px-6">
                 <div className="max-w-5xl mx-auto">
                     <motion.div
                         initial={{ opacity: 0, y: -20 }}
@@ -80,7 +85,7 @@ export function ProductPageLayout({ productId }: ProductPageLayoutProps) {
 
                                 <MidtransCheckout
                                     productId={product.id}
-                                    buttonClassName="w-full inline-flex items-center justify-center bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold px-8 py-4 rounded-full border border-white/10 hover:border-white/20 transition-all duration-300"
+                                    buttonClassName="w-full inline-flex items-center justify-center bg-zinc-800 hover:bg-zinc-700 text-white font-bold px-8 py-4 rounded-full border border-white/10 hover:border-white/20 transition-all duration-300"
                                 />
                             </div>
                         </div>

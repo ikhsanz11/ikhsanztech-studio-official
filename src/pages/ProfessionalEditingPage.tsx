@@ -63,22 +63,22 @@ const features = [
 
 export function ProfessionalEditingPage() {
     return (
-        <div className="min-h-screen bg-dark text-white overflow-x-hidden">
+        <div className="min-h-screen text-white overflow-x-hidden">
             <Helmet>
                 <title>Jasa Editing Video Profesional – Ubah Konten Jadi Viral | Ikhsanztech</title>
                 <meta name="description" content="Cari jasa editing video di Makassar? Ikhsanztech Studio melayani edit video TikTok, Reels, YouTube, dan Company Profile dengan kualitas cinematic & cepat." />
                 <meta name="keywords" content="Jasa Editing Video, Editing Video Profesional, Edit Video TikTok, Edit Video Reels, Edit Video YouTube, Company Profile, Makassar" />
             </Helmet>
-            <div className="ambient-gradient" />
+            <div className="global-fixed-bg" />
             <div className="relative z-10">
                 <Header />
 
                 {/* Fixed Back Button */}
                 <Link
                     to="/"
-                    className="fixed top-20 sm:top-24 left-4 sm:left-6 z-50 inline-flex items-center gap-2 text-white font-medium hover:text-white/70 transition-colors bg-black/30 sm:bg-white/10 backdrop-blur-sm px-3 sm:px-4 py-2 rounded-full border border-white/20 hover:bg-white/20 text-sm sm:text-base"
+                    className="fixed top-[72px] sm:top-20 left-4 sm:left-6 z-50 inline-flex items-center gap-1.5 sm:gap-2 text-white/90 text-xs sm:text-sm font-medium hover:text-white transition-colors bg-black/60 backdrop-blur-sm px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-full border border-white/10 hover:bg-black/80"
                 >
-                    <ArrowLeft className="w-4 h-4" />
+                    <ArrowLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                     <span className="hidden sm:inline">Kembali</span>
                 </Link>
 

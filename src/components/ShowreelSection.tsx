@@ -9,7 +9,7 @@ const categories = [
 
 export function ShowreelSection() {
   return (
-    <section id="portofolio" className="section-fade-top relative py-20 overflow-hidden">
+    <section id="portofolio" className="relative py-20 overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -32,7 +32,7 @@ export function ShowreelSection() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="relative aspect-video rounded-2xl overflow-hidden shadow-[0_0_60px_rgba(139,92,246,0.3)] border border-white/10"
+          className="relative aspect-video rounded-2xl overflow-hidden shadow-[0_0_60px_rgba(59,130,246,0.3)] border border-white/10"
         >
           {/* Portfolio Image */}
           <img
@@ -64,7 +64,7 @@ export function ShowreelSection() {
             <Link
               key={index}
               to={category.href}
-              className="font-semibold text-xs md:text-lg text-white bg-zinc-900/40 backdrop-blur-md border border-white/10 rounded-full px-3 py-2 md:px-6 md:py-3 hover:bg-zinc-800/60 hover:border-white/30 hover:scale-105 hover:shadow-[0_0_20px_rgba(139,92,246,0.3)] transition-all duration-300 text-center basis-[45%] md:basis-auto"
+              className="font-semibold text-xs md:text-lg text-white bg-zinc-900/40 backdrop-blur-md border border-white/10 rounded-full px-3 py-2 md:px-6 md:py-3 hover:bg-zinc-800/60 hover:border-white/30 hover:scale-105 hover:shadow-[0_0_20px_rgba(59,130,246,0.3)] transition-all duration-300 text-center basis-[45%] md:basis-auto"
             >
               {category.label}
             </Link>

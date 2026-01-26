@@ -25,7 +25,7 @@ interface MidtransCheckoutProps {
 
 export function MidtransCheckout({
     productId,
-    buttonClassName = "w-full inline-flex items-center justify-center bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold px-8 py-4 rounded-full border border-white/10 hover:border-white/20 transition-all duration-300",
+    buttonClassName = "w-full inline-flex items-center justify-center bg-zinc-800 hover:bg-zinc-700 text-white font-bold px-8 py-4 rounded-full border border-white/10 hover:border-white/20 transition-all duration-300",
     buttonText = "Beli Sekarang"
 }: MidtransCheckoutProps) {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -252,7 +252,7 @@ export function MidtransCheckout({
                                     disabled={isLoading}
                                     whileHover={{ scale: isLoading ? 1 : 1.02 }}
                                     whileTap={{ scale: isLoading ? 1 : 0.98 }}
-                                    className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold py-4 rounded-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full flex items-center justify-center gap-2 bg-zinc-800 hover:bg-zinc-700 text-white font-bold py-4 rounded-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                                 >
                                     {isLoading ? (
                                         <>

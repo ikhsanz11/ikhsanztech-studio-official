@@ -49,7 +49,7 @@ function TestimonialCard({ testimonial }: { testimonial: typeof testimonials[0] 
 
       {/* Author */}
       <div className="flex items-center gap-3 mt-auto">
-        <div className="w-10 h-10 rounded-full bg-purple-600 flex items-center justify-center text-white font-bold text-sm">
+        <div className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-sm">
           {testimonial.avatar}
         </div>
         <div>
@@ -66,7 +66,7 @@ export function TestimonialsSection() {
   const duplicatedTestimonials = [...testimonials, ...testimonials];
 
   return (
-    <section className="section-fade-bottom relative pt-20 pb-32 overflow-hidden">
+    <section className="relative pt-20 pb-32 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div

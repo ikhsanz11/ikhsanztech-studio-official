@@ -126,7 +126,7 @@ export function Header() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
-                    className="text-white text-2xl font-semibold hover:text-purple-400 transition-colors"
+                    className="text-white text-2xl font-semibold hover:text-blue-400 transition-colors"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {item.name}

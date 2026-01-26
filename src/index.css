@@ -23,6 +23,45 @@ body {
 }
 
 /* ============================================
+   GLOBAL FIXED BACKGROUND - Parallax Effect
+   ============================================ */
+
+.global-fixed-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.global-fixed-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('/hero-background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.global-fixed-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+      rgba(9, 9, 11, 0.3) 0%,
+      rgba(9, 9, 11, 0.5) 50%,
+      rgba(9, 9, 11, 0.7) 100%);
+}
+
+/* Section transparent overlay for premium look */
+.section-glass-overlay {
+  background: rgba(9, 9, 11, 0.4);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+/* ============================================
    GLOBAL GLASSMORPHISM STYLES
    ============================================ */
 
@@ -107,10 +146,10 @@ body {
   padding: 1px;
   border-radius: 24px;
   background: linear-gradient(90deg,
-      rgba(147, 51, 234, 0.5),
-      rgba(168, 85, 247, 0.3),
-      rgba(147, 51, 234, 0.5),
-      rgba(168, 85, 247, 0.3));
+      rgba(59, 130, 246, 0.5),
+      rgba(96, 165, 250, 0.3),
+      rgba(59, 130, 246, 0.5),
+      rgba(96, 165, 250, 0.3));
   background-size: 200% 100%;
   animation: gradientBorder 4s linear infinite;
   -webkit-mask:
@@ -149,9 +188,9 @@ body {
   width: 120%;
   height: 70%;
   background: radial-gradient(ellipse 80% 50% at 50% 0%,
-      rgba(147, 51, 234, 0.4) 0%,
-      rgba(126, 34, 206, 0.2) 30%,
-      rgba(88, 28, 135, 0.1) 50%,
+      rgba(59, 130, 246, 0.4) 0%,
+      rgba(37, 99, 235, 0.2) 30%,
+      rgba(30, 58, 138, 0.1) 50%,
       transparent 70%);
   animation: meshPulse 18s ease-in-out infinite;
 }
@@ -165,8 +204,8 @@ body {
   width: 80%;
   height: 50%;
   background: radial-gradient(ellipse 60% 40% at 50% 0%,
-      rgba(168, 85, 247, 0.3) 0%,
-      rgba(147, 51, 234, 0.15) 40%,
+      rgba(96, 165, 250, 0.3) 0%,
+      rgba(59, 130, 246, 0.15) 40%,
       transparent 70%);
   filter: blur(40px);
   animation: meshPulse 18s ease-in-out infinite reverse;
@@ -214,9 +253,9 @@ body {
   width: 140%;
   height: 140%;
   background:
-    radial-gradient(ellipse 50% 50% at 20% 30%, rgba(45, 27, 78, 0.6) 0%, transparent 50%),
-    radial-gradient(ellipse 50% 50% at 80% 20%, rgba(26, 26, 46, 0.5) 0%, transparent 50%),
-    radial-gradient(ellipse 60% 60% at 50% 50%, rgba(88, 28, 135, 0.3) 0%, transparent 60%);
+    radial-gradient(ellipse 50% 50% at 20% 30%, rgba(23, 37, 84, 0.6) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 50% at 80% 20%, rgba(15, 23, 42, 0.5) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 60% at 50% 50%, rgba(30, 58, 138, 0.3) 0%, transparent 60%);
   filter: blur(60px);
   animation: heroMeshMove 18s ease-in-out infinite;
 }
@@ -229,8 +268,8 @@ body {
   width: 120%;
   height: 120%;
   background:
-    radial-gradient(ellipse 40% 40% at 70% 60%, rgba(45, 27, 78, 0.4) 0%, transparent 50%),
-    radial-gradient(ellipse 50% 50% at 30% 70%, rgba(26, 26, 46, 0.3) 0%, transparent 50%);
+    radial-gradient(ellipse 40% 40% at 70% 60%, rgba(23, 37, 84, 0.4) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 50% at 30% 70%, rgba(15, 23, 42, 0.3) 0%, transparent 50%);
   filter: blur(80px);
   animation: heroMeshMove 18s ease-in-out infinite reverse;
 }
@@ -412,7 +451,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(147, 51, 234, 0.5);
+  background: rgba(59, 130, 246, 0.5);
   border-radius: 4px;
 }
 
@@ -523,14 +562,16 @@ body {
 }
 
 /* ============================================
-   SECTION FADE - Seamless Transitions
+   SECTION FADE - Disabled for seamless look
    ============================================ */
 
-/* Bottom fade overlay for seamless section blending */
+/* Bottom fade overlay - DISABLED for global fixed background */
 .section-fade-bottom {
   position: relative;
 }
 
+/* Fade effects removed for seamless section blending with global background */
+/*
 .section-fade-bottom::after {
   content: '';
   position: absolute;
@@ -546,12 +587,14 @@ body {
   pointer-events: none;
   z-index: 5;
 }
+*/
 
-/* Top fade overlay for incoming sections */
+/* Top fade overlay - DISABLED for global fixed background */
 .section-fade-top {
   position: relative;
 }
 
+/*
 .section-fade-top::before {
   content: '';
   position: absolute;
@@ -566,3 +609,4 @@ body {
   pointer-events: none;
   z-index: 5;
 }
+*/

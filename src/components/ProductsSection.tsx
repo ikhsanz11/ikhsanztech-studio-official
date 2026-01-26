@@ -153,7 +153,7 @@ function ProductCard({ product, index }: { product: typeof products[0]; index: n
         viewport={{ once: true }}
         transition={{ duration: 0.3, delay: index * 0.03 }}
         whileHover={{ scale: 1.01 }}
-        className="bg-gradient-to-br from-white/8 via-zinc-900/50 to-zinc-900/30 backdrop-blur-xl border border-white/10 rounded-2xl px-4 py-4 flex flex-col md:flex-row gap-4 md:gap-6 group cursor-pointer items-center hover:border-white/25 hover:shadow-[0_8px_32px_rgba(139,92,246,0.15)] transition-all duration-300"
+        className="bg-gradient-to-br from-white/8 via-zinc-900/50 to-zinc-900/30 backdrop-blur-xl border border-white/10 rounded-2xl px-4 py-4 flex flex-col md:flex-row gap-4 md:gap-6 group cursor-pointer items-center hover:border-white/25 hover:shadow-[0_8px_32px_rgba(59,130,246,0.15)] transition-all duration-300"
       >
         {/* Product Image - Left */}
         <div className="w-24 md:w-28 flex-shrink-0 aspect-square rounded-xl overflow-hidden bg-white/5">
@@ -215,7 +215,7 @@ export function ProductsSection() {
   const filteredProducts = products.filter(product => product.category === activeCategory);
 
   return (
-    <section id="produk-digital" className="section-fade-top relative py-20 overflow-hidden">
+    <section id="produk-digital" className="relative py-20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
