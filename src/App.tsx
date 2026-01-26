@@ -86,9 +86,9 @@ function HomePage() {
       <div className="relative z-10">
         <Header />
         <HeroSection />
-        <ShowreelSection />
         <ServicesSection />
         <ProductsSection />
+        <ShowreelSection />
         <TestimonialsSection />
         <Footer />
       </div>
