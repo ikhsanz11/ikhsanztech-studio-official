@@ -610,3 +610,65 @@ body {
   z-index: 5;
 }
 */
+
+/* ============================================
+   MOBILE PREMIUM STYLING
+   ============================================ */
+
+/* Mobile-specific background adjustments */
+@media (max-width: 768px) {
+
+  /* Ensure fixed background works on mobile */
+  .global-fixed-bg::before {
+    background-attachment: scroll;
+    background-size: cover;
+    background-position: center top;
+  }
+
+  /* Stronger navbar glassmorphism on mobile */
+  .glass-nav {
+    background: linear-gradient(to bottom right,
+        rgba(9, 9, 11, 0.85),
+        rgba(9, 9, 11, 0.9));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  /* Mobile section padding improvements */
+  section {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Better card glassmorphism on mobile */
+  .glass-card,
+  .glass-grid-item {
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  /* Active service item blue glow on mobile */
+  .glass-grid-item.active {
+    background: rgba(59, 130, 246, 0.2);
+    border-color: rgba(59, 130, 246, 0.5);
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+
+  /* Increase overall section spacing */
+  section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  /* Better button tap targets */
+  button,
+  .glass-button,
+  a[class*="rounded-full"] {
+    min-height: 44px;
+  }
+}

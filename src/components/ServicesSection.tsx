@@ -125,8 +125,8 @@ export function ServicesSection() {
             MOBILE SMART GRID (Hidden on Desktop)
             ============================================ */}
         <div className="md:hidden">
-          {/* 4x2 Grid Selector */}
-          <div className="grid grid-cols-4 gap-2 mb-6">
+          {/* 2x4 Grid Selector - Larger icons for premium mobile look */}
+          <div className="grid grid-cols-2 gap-3 mb-6">
             {services.map((service, index) => {
               const Icon = service.icon;
               const isActive = index === currentIndex;
@@ -135,24 +135,18 @@ export function ServicesSection() {
                   key={index}
                   onClick={() => setCurrentIndex(index)}
                   whileTap={{ scale: 0.95 }}
-                  className={`relative flex flex-col items-center justify-center p-3 rounded-xl transition-all duration-300 ${isActive
+                  className={`relative flex items-center gap-3 p-4 rounded-2xl transition-all duration-300 ${isActive
                     ? 'bg-blue-600/30 border-2 border-blue-500 shadow-[0_0_20px_rgba(59,130,246,0.4)]'
-                    : 'bg-zinc-900/40 border border-white/10 hover:border-white/30'
+                    : 'bg-zinc-900/60 border border-white/10 hover:border-white/30 backdrop-blur-md'
                     }`}
                 >
-                  <Icon className={`w-6 h-6 mb-1 ${isActive ? 'text-blue-400' : 'text-white/70'}`} />
-                  <span className={`text-[10px] text-center leading-tight ${isActive ? 'text-white font-semibold' : 'text-white/60'}`}>
+                  <Icon className={`w-7 h-7 flex-shrink-0 ${isActive ? 'text-blue-400' : 'text-white/70'}`} />
+                  <span className={`text-xs text-left leading-tight ${isActive ? 'text-white font-semibold' : 'text-white/60'}`}>
                     {service.shortTitle}
                   </span>
                 </motion.button>
               );
             })}
-          </div>
-
-          {/* Category Labels */}
-          <div className="flex justify-between text-xs text-white/50 mb-4 px-2">
-            <span>Video Editing</span>
-            <span>AI Services</span>
           </div>
 
           {/* Dynamic Description Area */}
