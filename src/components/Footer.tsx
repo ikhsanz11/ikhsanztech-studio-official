@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Instagram, Youtube, Mail, MapPin, Phone } from 'lucide-react';
+import { handleWhatsAppClick } from '../utils/gtag';
 
 const footerLinks = {
   menu: [
@@ -82,13 +83,21 @@ export function Footer() {
             <ul className="flex flex-col gap-3">
               {footerLinks.menu.map((link) => (
                 <li key={link.name}>
-                  <a
-                    href={link.href}
-                    {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                    className="text-white/60 hover:text-white transition-colors text-sm"
-                  >
-                    {link.name}
-                  </a>
+                  {link.external ? (
+                    <button
+                      onClick={() => handleWhatsAppClick(link.href)}
+                      className="text-white/60 hover:text-white transition-colors text-sm text-left"
+                    >
+                      {link.name}
+                    </button>
+                  ) : (
+                    <a
+                      href={link.href}
+                      className="text-white/60 hover:text-white transition-colors text-sm"
+                    >
+                      {link.name}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>

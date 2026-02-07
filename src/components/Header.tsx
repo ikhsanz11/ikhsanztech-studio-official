@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { handleWhatsAppClick } from '../utils/gtag';
 
 const navItems = [
   { name: 'Jasa Kami', href: '/jasa-kami' },
@@ -41,14 +42,12 @@ export function Header() {
               </div>
 
               {/* CTA Button */}
-              <motion.a
-                href="https://wa.me/message/3VBAYSQKPXSYB1"
-                target="_blank"
-                rel="noopener noreferrer"
+              <motion.button
+                onClick={() => handleWhatsAppClick('https://wa.me/message/3VBAYSQKPXSYB1')}
                 className="hidden md:block bg-white/10 backdrop-blur-md text-white font-bold text-sm px-6 py-2.5 rounded-full border border-white/20 hover:bg-white/20 hover:border-white/30 transition-all"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-              >Hubungi Kami</motion.a>
+              >Hubungi Kami</motion.button>
 
               {/* Mobile Menu Toggle */}
               <button
@@ -134,18 +133,18 @@ export function Header() {
                 ))}
 
                 {/* CTA Button */}
-                <motion.a
-                  href="https://wa.me/message/3VBAYSQKPXSYB1"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <motion.button
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    handleWhatsAppClick('https://wa.me/message/3VBAYSQKPXSYB1');
+                  }}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 0.5 }}
                   className="mt-6 bg-white text-gray-900 font-bold text-lg px-8 py-4 rounded-full hover:bg-white/90 transition-all"
-                  onClick={() => setIsMenuOpen(false)}
                 >
                   Hubungi Kami
-                </motion.a>
+                </motion.button>
               </div>
 
               {/* Bottom Branding */}

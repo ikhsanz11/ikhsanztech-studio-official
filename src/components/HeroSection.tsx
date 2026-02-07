@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { handleWhatsAppClick } from '../utils/gtag';
 
 export function HeroSection() {
   return (
@@ -42,14 +43,12 @@ export function HeroSection() {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="flex items-center justify-center"
         >
-          <motion.a
-            href="https://wa.me/message/3VBAYSQKPXSYB1"
-            target="_blank"
-            rel="noopener noreferrer"
+          <motion.button
+            onClick={() => handleWhatsAppClick('https://wa.me/message/3VBAYSQKPXSYB1')}
             className="inline-flex items-center justify-center bg-white/10 backdrop-blur-md hover:bg-white/20 text-white font-bold px-8 py-4 rounded-full border border-white/20 hover:border-white/30 transition-all duration-300"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-          >Hubungi Kami</motion.a>
+          >Hubungi Kami</motion.button>
         </motion.div>
       </div>
 
