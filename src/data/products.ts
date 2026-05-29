@@ -56,9 +56,9 @@ export const products: Product[] = [
         id: 'higgsfield-ai',
         name: 'HIGGSFIELD AI 1200C',
         description: 'Teknologi pergerakan video AI paling halus untuk kreator profesional',
-        price: 499000,
-        displayPrice: 'IDR 499.000',
-        originalPrice: 'IDR 855.000',
+        price: 1248000,
+        displayPrice: 'IDR 1.248.000',
+        originalPrice: 'IDR 1.499.000',
         image: '/higgsfield-baru.png',
         category: 'account',
         features: [
