@@ -136,22 +136,6 @@ export const products: Product[] = [
         ],
     },
     {
-        id: 'sora2-prompt',
-        name: 'Sora2 Smart Prompt',
-        description: 'Ubah gambar statis menjadi video hidup dengan detail sinematik dan kendali kamera penuh.',
-        price: 139000,
-        displayPrice: 'IDR 139.000',
-        originalPrice: 'IDR 465.000',
-        image: '/sora2-prompt.jpg',
-        category: 'prompt-gen',
-        features: [
-            'Optimized untuk Sora 2',
-            'Kendali Kamera Penuh',
-            'Detail Sinematik',
-            'Lifetime Access',
-        ],
-    },
-    {
         id: 'veo3-prompt',
         name: 'Veo 3.1 Smart Prompt',
         description: 'Generator prompt khusus untuk model Veo 3.1, menghasilkan atmosfer film profesional kelas dunia.',

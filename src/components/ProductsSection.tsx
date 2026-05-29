@@ -72,16 +72,6 @@ const products = [
     whatsappLink: 'https://wa.me/6287877066270?text=Halo%20Ikhsanztech-studio,%20saya%20ingin%20membeli%20Nano%20Banana%20Image%20Gen.',
   },
   {
-    id: 'sora2-prompt',
-    name: 'Sora2 Smart Prompt',
-    description: 'Ubah gambar statis menjadi video hidup dengan detail sinematik dan kendali kamera penuh.',
-    price: 'IDR 139.000',
-    originalPrice: 'IDR 465.000',
-    image: '/sora2-prompt.jpg',
-    category: 'prompt-gen' as Category,
-    whatsappLink: 'https://wa.me/6287877066270?text=Halo%20Ikhsanztech-studio,%20saya%20ingin%20membeli%20Sora2%20Smart%20Prompt.',
-  },
-  {
     id: 'veo3-prompt',
     name: 'Veo 3.1 Smart Prompt',
     description: 'Generator prompt khusus untuk model Veo 3.1, menghasilkan atmosfer film profesional kelas dunia.',
