@@ -145,7 +145,7 @@ export function ServicesSection() {
                 <img
                   src={currentService.image}
                   alt={currentService.title}
-                  className="w-full h-48 object-cover rounded-xl"
+                  className="w-full aspect-square object-cover rounded-xl"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent rounded-xl" />
               </div>

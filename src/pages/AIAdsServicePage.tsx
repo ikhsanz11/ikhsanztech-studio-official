@@ -143,7 +143,7 @@ export function AIAdsServicePage() {
                                         </button>
 
                                         {/* Dot Indicators */}
-                                        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 z-10 bg-black/40 backdrop-blur-sm rounded-full px-3 py-1.5">
+                                        <div className="hidden sm:flex absolute bottom-3 left-1/2 -translate-x-1/2 items-center gap-1.5 z-10 bg-black/40 backdrop-blur-sm rounded-full px-3 py-1.5">
                                             {sliderImages.map((_, index) => (
                                                 <button
                                                     key={index}
