@@ -23,7 +23,7 @@ export function HeroSection() {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="text-white/80 text-lg sm:text-xl font-medium mb-4"
         >
-          Ikhsanztech-studio — Creative & AI Specialist.
+          Ikhsanztech-studio — AI Visual Creative Director.
         </motion.p>
 
         {/* Description */}
