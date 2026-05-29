@@ -217,10 +217,10 @@ export const products: Product[] = [
     },
     {
         id: 'chatgpt-plus',
-        name: 'ChatGPT Plus 5.2 (3 Bulan)',
+        name: 'ChatGPT Plus 5.5 (1 Bulan)',
         description: 'ChatGPT Plus dengan fitur lengkap: Codex, Sora, mode agen, dan memori percakapan.',
-        price: 190000,
-        displayPrice: 'IDR 190.000',
+        price: 250000,
+        displayPrice: 'IDR 250.000',
         originalPrice: 'IDR 1.047.000',
         image: '/chatgpt-plus.png',
         category: 'account',
