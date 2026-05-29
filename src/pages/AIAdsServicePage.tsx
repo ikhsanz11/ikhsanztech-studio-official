@@ -107,7 +107,7 @@ export function AIAdsServicePage() {
                         >
                             <div className="flex flex-col lg:flex-row gap-8 items-center">
                                 {/* Service Image Slider */}
-                                <div className="w-full lg:w-1/2">
+                                <div className="w-full max-w-[320px] sm:max-w-md lg:max-w-none lg:w-1/2 mx-auto lg:mx-0">
                                     <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-zinc-900/40">
                                         {/* Slider Container */}
                                         <div className="relative aspect-square overflow-hidden">
