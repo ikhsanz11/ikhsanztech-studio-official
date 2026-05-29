@@ -111,7 +111,6 @@ export const products: Product[] = [
         category: 'account',
         features: [
             'Kupas tuntas berbagai AI tools terbaru — dari mainstream sampai hidden gems',
-            'Free akses ChatGPT 5.0 & Sora 2 selama 3 bulan penuh',
             'Workflow lengkap bikin karakter video AI konsisten & cinematic',
             'Prompt Generator siap pakai buat gambar, video, desain, musik',
             'Akses ke tools rahasia & plugin AI eksklusif kreator sukses dunia',
