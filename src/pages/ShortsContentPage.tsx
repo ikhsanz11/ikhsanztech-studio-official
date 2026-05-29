@@ -1,7 +1,10 @@
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
     ArrowLeft,
+    ChevronLeft,
+    ChevronRight,
     MessageCircle,
     FileCheck,
     Clapperboard,
@@ -31,7 +34,37 @@ const features = [
     'Hak Milik Penuh (100% milik Anda)',
 ];
 
+const sliderImages = [
+    { src: '/jasa-reels-tiktok.png', alt: 'Membuat Konten Reels, TikTok, Short & Ads - Thumbnail' },
+    { src: '/showcase/shorts-content/Artboard 37.png', alt: 'Shorts Content Showcase 1' },
+    { src: '/showcase/shorts-content/Artboard 38.png', alt: 'Shorts Content Showcase 2' },
+    { src: '/showcase/shorts-content/Artboard 39.png', alt: 'Shorts Content Showcase 3' },
+    { src: '/showcase/shorts-content/Artboard 40.png', alt: 'Shorts Content Showcase 4' },
+    { src: '/showcase/shorts-content/Artboard 41.png', alt: 'Shorts Content Showcase 5' },
+    { src: '/showcase/shorts-content/Artboard 42.png', alt: 'Shorts Content Showcase 6' },
+    { src: '/showcase/shorts-content/Artboard 43.png', alt: 'Shorts Content Showcase 7' },
+    { src: '/showcase/shorts-content/Artboard 44.png', alt: 'Shorts Content Showcase 8' },
+];
+
 export function ShortsContentPage() {
+    const [currentSlide, setCurrentSlide] = useState(0);
+    const [slideDirection, setSlideDirection] = useState(0);
+
+    const goToPrevSlide = () => {
+        setSlideDirection(-1);
+        setCurrentSlide((prev) => (prev === 0 ? sliderImages.length - 1 : prev - 1));
+    };
+
+    const goToNextSlide = () => {
+        setSlideDirection(1);
+        setCurrentSlide((prev) => (prev === sliderImages.length - 1 ? 0 : prev + 1));
+    };
+
+    const goToSlide = (index: number) => {
+        setSlideDirection(index > currentSlide ? 1 : -1);
+        setCurrentSlide(index);
+    };
+
     return (
         <div className="min-h-screen text-white overflow-x-hidden">
             <div className="global-fixed-bg" />
@@ -56,14 +89,62 @@ export function ShortsContentPage() {
                             className="mb-12 sm:mb-16"
                         >
                             <div className="flex flex-col lg:flex-row gap-8 items-center">
-                                {/* Service Image */}
+                                {/* Service Image Slider */}
                                 <div className="w-full lg:w-1/2">
-                                    <div className="rounded-2xl overflow-hidden border border-white/10">
-                                        <img
-                                            src="https://public.youware.com/image/12ff9b38-6b05-4e37-a889-81f23d779018/j9xk7qwso2.png"
-                                            alt="Membuat Konten Reels, TikTok, Short & Ads"
-                                            className="w-full h-auto object-cover"
-                                        />
+                                    <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-zinc-900/40">
+                                        {/* Slider Container */}
+                                        <div className="relative aspect-square overflow-hidden">
+                                            <AnimatePresence initial={false} custom={slideDirection} mode="wait">
+                                                <motion.img
+                                                    key={currentSlide}
+                                                    src={sliderImages[currentSlide].src}
+                                                    alt={sliderImages[currentSlide].alt}
+                                                    custom={slideDirection}
+                                                    initial={{ opacity: 0, x: slideDirection > 0 ? 100 : -100 }}
+                                                    animate={{ opacity: 1, x: 0 }}
+                                                    exit={{ opacity: 0, x: slideDirection > 0 ? -100 : 100 }}
+                                                    transition={{ duration: 0.3, ease: 'easeInOut' }}
+                                                    className="absolute inset-0 w-full h-full object-contain"
+                                                />
+                                            </AnimatePresence>
+                                        </div>
+
+                                        {/* Navigation Arrows */}
+                                        <button
+                                            onClick={goToPrevSlide}
+                                            className="absolute left-2 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-black/50 backdrop-blur-sm border border-white/20 flex items-center justify-center hover:bg-black/70 transition-all duration-300 z-10 group"
+                                            aria-label="Previous image"
+                                        >
+                                            <ChevronLeft className="w-5 h-5 text-white/80 group-hover:text-white transition-colors" />
+                                        </button>
+                                        <button
+                                            onClick={goToNextSlide}
+                                            className="absolute right-2 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-black/50 backdrop-blur-sm border border-white/20 flex items-center justify-center hover:bg-black/70 transition-all duration-300 z-10 group"
+                                            aria-label="Next image"
+                                        >
+                                            <ChevronRight className="w-5 h-5 text-white/80 group-hover:text-white transition-colors" />
+                                        </button>
+
+                                        {/* Dot Indicators */}
+                                        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 z-10 bg-black/40 backdrop-blur-sm rounded-full px-3 py-1.5">
+                                            {sliderImages.map((_, index) => (
+                                                <button
+                                                    key={index}
+                                                    onClick={() => goToSlide(index)}
+                                                    className={`rounded-full transition-all duration-300 ${
+                                                        index === currentSlide
+                                                            ? 'bg-white w-5 h-2'
+                                                            : 'bg-white/40 hover:bg-white/60 w-2 h-2'
+                                                    }`}
+                                                    aria-label={`Go to slide ${index + 1}`}
+                                                />
+                                            ))}
+                                        </div>
+
+                                        {/* Slide Counter */}
+                                        <div className="absolute top-3 right-3 bg-black/50 backdrop-blur-sm rounded-full px-3 py-1 text-white/80 text-xs font-medium z-10">
+                                            {currentSlide + 1} / {sliderImages.length}
+                                        </div>
                                     </div>
                                 </div>
 
